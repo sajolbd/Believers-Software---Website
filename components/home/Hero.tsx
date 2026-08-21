@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Code, Search, ShieldCheck, Layout, Zap, CheckCirc
 
 export default function Hero() {
   const badges = [
-    "JavaScript Development",
+    "Custom Website Development",
     "WordPress Development",
     "Website Maintenance",
     "SEO Services",
