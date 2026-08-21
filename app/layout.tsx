@@ -16,7 +16,7 @@ const josefinSans = Josefin_Sans({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://believerssoftware.com");
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://believerssoftware.vercel.app");
 
 /* ---------------- METADATA ---------------- */
 
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     siteName: "Believers Software",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/og-image-1200x630.png",
         width: 1200,
         height: 630,
-        alt: "Believers Software — Web Development, SEO & Security",
+        alt: "Believers Software — Full-Service Web & Digital Growth Agency",
       },
     ],
     locale: "en_US",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: "Believers Software — Full-Service Web & Digital Growth Agency",
     description:
       "A website that actually earns its keep — custom JavaScript apps, WordPress development, SEO, marketing, and security.",
-    images: ["/opengraph-image.png"],
+    images: ["/og-image-1200x630.png"],
   },
 };
 
