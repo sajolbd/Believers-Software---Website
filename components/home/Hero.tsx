@@ -50,18 +50,16 @@ export default function Hero() {
 
           {/* Left Content Column */}
           <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col items-start text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-xs font-mono font-bold tracking-wider text-primary uppercase mb-6">
-              <Sparkles className="w-3.5 h-3.5" />
-              Full-Service Web &amp; Digital Growth Agency
+            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-primary uppercase mb-6">
+              <span className="w-5 h-[2px] bg-primary" />
+              FULL-SERVICE WEB &amp; DIGITAL GROWTH AGENCY
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-josefin font-bold text-slate-900 leading-[1.2] mb-6">
-              A website that actually{" "}
-              <span className="text-primary italic font-medium relative inline-block">
-                earns its keep
-                <span className="absolute bottom-1 left-0 w-full h-[4px] bg-primary/10 -rotate-1" />
-              </span>{" "}
-              — design, SEO, and security under one roof.
+            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-serif font-normal text-slate-900 leading-[1.18] mb-6">
+              A website that actually earns its keep —{" "}
+              <span className="text-primary italic font-serif">
+                design, SEO, and security under one roof.
+              </span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">

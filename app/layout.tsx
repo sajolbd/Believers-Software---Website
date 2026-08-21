@@ -37,11 +37,14 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: "/icon.ico" },
-      { url: "/favicon.ico" },
+      { url: "/favicon-transparent.png", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
-    shortcut: "/icon.ico",
-    apple: "/apple-icon.png",
+    shortcut: "/favicon-transparent.png",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Believers Software — Full-Service Web & Digital Growth Agency",
@@ -56,6 +59,12 @@ export const metadata: Metadata = {
         height: 630,
         alt: "Believers Software — Full-Service Web & Digital Growth Agency",
       },
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Believers Software — Web Development, SEO & Security",
+      },
     ],
     locale: "en_US",
     type: "website",
@@ -65,7 +74,7 @@ export const metadata: Metadata = {
     title: "Believers Software — Full-Service Web & Digital Growth Agency",
     description:
       "A website that actually earns its keep — custom JavaScript apps, WordPress development, SEO, marketing, and security.",
-    images: ["/og-image-1200x630.png"],
+    images: ["/og-image-1200x630.png", "/og-image.png"],
   },
 };
 
