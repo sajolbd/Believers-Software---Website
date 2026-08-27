@@ -17,10 +17,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <Stats />
+      <Stats />
       <Differentiation />
       <Services />
-      <Testimonials />
+      {/* <Testimonials />
       <Portfolio />
       <WhyUs />
       <Process />

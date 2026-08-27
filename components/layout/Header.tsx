@@ -1,13 +1,37 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Mail, Clock, Shield } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowRight,
+  Mail,
+  Clock,
+  Shield,
+  ChevronDown,
+  Code,
+  Globe,
+  Layers,
+  Search,
+  Megaphone,
+  ShieldAlert,
+  Wrench,
+  Briefcase,
+  MessageSquare,
+  Zap,
+  Users,
+  Sparkles,
+  BookOpen,
+} from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,12 +52,127 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  const mainPageLinks = [
+  const handleMouseEnter = (name: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDropdown(name);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  };
+
+  const toggleMobileExpand = (name: string) => {
+    setMobileExpanded(mobileExpanded === name ? null : name);
+  };
+
+  const navItems = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "Work", href: "/portfolio" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "Process", href: "/process" },
+    {
+      name: "Services",
+      href: "/services",
+      hasMenu: true,
+      servicesCols: {
+        col1: {
+          title: "Web & Software Development",
+          items: [
+            {
+              name: "Website Design & Development",
+              desc: "Custom React, Next.js & WordPress platforms built for high performance.",
+              href: "/services/web-development",
+              icon: <Code className="w-5 h-5 text-primary" />,
+            },
+            {
+              name: "React & Next.js Custom Apps",
+              desc: "Dynamic web apps, SaaS tools, and responsive admin dashboards.",
+              href: "/services/web-development#javascript",
+              icon: <Globe className="w-5 h-5 text-[#3FC7B0]" />,
+            },
+            {
+              name: "WordPress & WooCommerce",
+              desc: "Custom themes, plugin setup, and editable business online stores.",
+              href: "/services/web-development#wordpress",
+              icon: <Layers className="w-5 h-5 text-amber-500" />,
+            },
+          ],
+        },
+        col2: {
+          title: "Growth, Security & Care",
+          items: [
+            {
+              name: "SEO Services",
+              desc: "Technical audits, intent keyword research, and Google ranking.",
+              href: "/services/seo",
+              icon: <Search className="w-5 h-5 text-indigo-500" />,
+            },
+            {
+              name: "Digital & Social Marketing",
+              desc: "Post design, video reels, Google Ads, Meta Ads, and email campaigns.",
+              href: "/services/digital-marketing",
+              icon: <Megaphone className="w-5 h-5 text-[#3FC7B0]" />,
+            },
+            {
+              name: "WordPress Security & Malware",
+              desc: "Emergency hack recovery, Google blacklist review, and 24/7 firewall.",
+              href: "/services/security",
+              icon: <ShieldAlert className="w-5 h-5 text-rose-500" />,
+            },
+            {
+              name: "Website Maintenance",
+              desc: "Core updates, 24/7 uptime checks, daily backups, and bug fixes.",
+              href: "/services/maintenance",
+              icon: <Wrench className="w-5 h-5 text-amber-500" />,
+            },
+          ],
+        },
+        featured: {
+          badge: "Coalition Standard",
+          title: "Need a Custom Web Solution?",
+          desc: "Get a free technical website audit & estimate from our team.",
+          btnText: "Get Free Quote",
+          href: "/contact",
+        },
+      },
+    },
+    {
+      name: "Work",
+      href: "/portfolio",
+      hasMenu: true,
+      workItems: [
+        {
+          name: "Featured Case Studies",
+          desc: "Explore custom web applications and business site redesigns.",
+          href: "/portfolio",
+          icon: <Briefcase className="w-5 h-5 text-primary" />,
+        },
+        {
+          name: "Client Testimonials",
+          desc: "See how we help businesses solve technical and growth challenges.",
+          href: "/testimonials",
+          icon: <MessageSquare className="w-5 h-5 text-indigo-500" />,
+        },
+      ],
+    },
+    {
+      name: "Why Us",
+      href: "/process",
+      hasMenu: true,
+      whyUsItems: [
+        {
+          name: "Our Development Process",
+          desc: "From UI design wireframes to clean production code deployment.",
+          href: "/process",
+          icon: <Zap className="w-5 h-5 text-amber-500" />,
+        },
+        {
+          name: "The Believers Difference",
+          desc: "Design, development, SEO, marketing, and security under one roof.",
+          href: "/#why-us",
+          icon: <Users className="w-5 h-5 text-[#3FC7B0]" />,
+        },
+      ],
+    },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
@@ -43,33 +182,183 @@ export default function Header() {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm py-4"
-            : "bg-transparent py-6"
+            ? "bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm py-3.5"
+            : "bg-white/80 backdrop-blur-sm border-b border-slate-100/50 py-5"
         }`}
       >
         <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
-          {/* Brand Typographic Logo */}
+          {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-[#FF8C33] text-white font-josefin font-black text-xl shadow-md shadow-primary/20 select-none transform group-hover:scale-105 transition-transform duration-300">
-              B
-              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-slate-900 border-2 border-white" />
+            <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center border border-slate-200/50 shadow-xs transform group-hover:scale-105 transition-transform duration-300">
+              <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M10 6C10 6 18 4 23 9C27 13 26 18 21 21C16 24 10 25 10 25"
+                  stroke="url(#logo-grad-header)"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                />
+                <linearGradient id="logo-grad-header" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FF4B33" />
+                  <stop offset="100%" stopColor="#FF8C33" />
+                </linearGradient>
+              </svg>
             </div>
             <span className="font-josefin font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-primary transition-colors duration-300">
-              Believers<span className="text-primary font-black">Software</span>
+              Believers<span className="text-primary font-black">.</span>
             </span>
           </Link>
 
-          {/* Desktop Navlinks */}
-          <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
-            {mainPageLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="relative py-2 transition-colors duration-200 hover:text-slate-900 group font-bold"
+          {/* Desktop Navlinks with Coalition Mega Menu Dropdowns */}
+          <nav className="hidden md:flex items-center gap-7 font-josefin font-bold text-sm text-slate-700">
+            {navItems.map((item) => (
+              <div
+                key={item.name}
+                className="relative py-2"
+                onMouseEnter={() => handleMouseEnter(item.name)}
+                onMouseLeave={handleMouseLeave}
               >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </Link>
+                <Link
+                  href={item.href}
+                  className={`inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-primary ${
+                    activeDropdown === item.name ? "text-primary" : "text-slate-700"
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  {item.hasMenu && (
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        activeDropdown === item.name ? "rotate-180 text-primary" : "text-slate-400"
+                      }`}
+                    />
+                  )}
+                </Link>
+
+                {/* Dropdown Indicator Line */}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                    activeDropdown === item.name ? "w-full" : "w-0"
+                  }`}
+                />
+
+                {/* Mega Menu Dropdowns */}
+                <AnimatePresence>
+                  {activeDropdown === item.name && item.hasMenu && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 pointer-events-auto"
+                    >
+                      {/* Services Mega Menu */}
+                      {item.name === "Services" && item.servicesCols && (
+                        <div className="w-[680px] rounded-3xl bg-white border border-slate-200/90 shadow-2xl shadow-slate-900/15 p-6 grid grid-cols-2 gap-6 overflow-hidden">
+                          {/* Col 1 */}
+                          <div className="col-span-1 space-y-2.5">
+                            <span className="font-mono text-[11px] font-bold text-slate-400 uppercase tracking-widest block mb-2">
+                              {item.servicesCols.col1.title}
+                            </span>
+                            {item.servicesCols.col1.items.map((sub, i) => (
+                              <Link
+                                key={i}
+                                href={sub.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all duration-200 group/sub"
+                              >
+                                <div className="p-2.5 rounded-xl bg-slate-100/80 group-hover/sub:bg-primary/10 transition-colors mt-0.5">
+                                  {sub.icon}
+                                </div>
+                                <div>
+                                  <span className="font-josefin font-bold text-slate-900 group-hover/sub:text-primary transition-colors text-sm block">
+                                    {sub.name}
+                                  </span>
+                                  <span className="text-xs text-slate-500 font-normal leading-relaxed line-clamp-2">
+                                    {sub.desc}
+                                  </span>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+
+                          {/* Col 2 */}
+                          <div className="col-span-1 space-y-2.5 border-l border-slate-100 pl-6">
+                            <span className="font-mono text-[11px] font-bold text-slate-400 uppercase tracking-widest block mb-2">
+                              {item.servicesCols.col2.title}
+                            </span>
+                            {item.servicesCols.col2.items.map((sub, i) => (
+                              <Link
+                                key={i}
+                                href={sub.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all duration-200 group/sub"
+                              >
+                                <div className="p-2.5 rounded-xl bg-slate-100/80 group-hover/sub:bg-primary/10 transition-colors mt-0.5">
+                                  {sub.icon}
+                                </div>
+                                <div>
+                                  <span className="font-josefin font-bold text-slate-900 group-hover/sub:text-primary transition-colors text-xs block">
+                                    {sub.name}
+                                  </span>
+                                  <span className="text-[11px] text-slate-500 font-normal line-clamp-1">
+                                    {sub.desc}
+                                  </span>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Work / Why Us Dropdowns */}
+                      {item.name === "Work" && item.workItems && (
+                        <div className="w-[380px] rounded-2xl bg-white border border-slate-200/90 shadow-xl p-4 space-y-2">
+                          {item.workItems.map((sub, i) => (
+                            <Link
+                              key={i}
+                              href={sub.href}
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition-all group/sub"
+                            >
+                              <div className="p-2 rounded-lg bg-slate-100 group-hover/sub:bg-primary/10 transition-colors">
+                                {sub.icon}
+                              </div>
+                              <div>
+                                <span className="font-josefin font-bold text-slate-900 group-hover/sub:text-primary text-sm block">
+                                  {sub.name}
+                                </span>
+                                <span className="text-xs text-slate-500 font-normal">{sub.desc}</span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+
+                      {item.name === "Why Us" && item.whyUsItems && (
+                        <div className="w-[380px] rounded-2xl bg-white border border-slate-200/90 shadow-xl p-4 space-y-2">
+                          {item.whyUsItems.map((sub, i) => (
+                            <Link
+                              key={i}
+                              href={sub.href}
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition-all group/sub"
+                            >
+                              <div className="p-2 rounded-lg bg-slate-100 group-hover/sub:bg-primary/10 transition-colors">
+                                {sub.icon}
+                              </div>
+                              <div>
+                                <span className="font-josefin font-bold text-slate-900 group-hover/sub:text-primary text-sm block">
+                                  {sub.name}
+                                </span>
+                                <span className="text-xs text-slate-500 font-normal">{sub.desc}</span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
           </nav>
 
@@ -77,7 +366,7 @@ export default function Header() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold bg-primary text-white border border-primary hover:bg-[#ff5d47] hover:border-[#ff5d47] shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-primary text-white border border-primary hover:bg-[#ff5d47] hover:border-[#ff5d47] shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5"
             >
               Get a Free Quote
             </Link>
@@ -113,17 +402,27 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 220 }}
-              className="fixed top-0 right-0 w-[78%] max-w-[320px] h-full bg-white shadow-2xl z-50 md:hidden flex flex-col justify-between overflow-y-auto border-l border-slate-100"
+              className="fixed top-0 right-0 w-[85%] max-w-[340px] h-full bg-white shadow-2xl z-50 md:hidden flex flex-col justify-between overflow-y-auto border-l border-slate-100"
             >
               {/* Drawer Top Bar */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
-                <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2.5">
-                  <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[#FF8C33] text-white font-josefin font-black text-base shadow-sm select-none">
-                    B
-                    <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-slate-900 border border-white" />
+                <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3 group">
+                  <div className="w-9 h-9 rounded-xl bg-primary/5 flex items-center justify-center border border-slate-200/50 shadow-xs">
+                    <svg className="w-6 h-6" viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M10 6C10 6 18 4 23 9C27 13 26 18 21 21C16 24 10 25 10 25"
+                        stroke="url(#logo-grad-header-drawer)"
+                        strokeWidth="3.5"
+                        strokeLinecap="round"
+                      />
+                      <linearGradient id="logo-grad-header-drawer" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#FF4B33" />
+                        <stop offset="100%" stopColor="#FF8C33" />
+                      </linearGradient>
+                    </svg>
                   </div>
-                  <span className="font-josefin font-extrabold text-base tracking-tight text-slate-900">
-                    Believers<span className="text-primary">Software</span>
+                  <span className="font-josefin font-extrabold text-lg tracking-tight text-slate-900">
+                    Believers<span className="text-primary font-black">.</span>
                   </span>
                 </Link>
                 <button
@@ -134,32 +433,121 @@ export default function Header() {
                 </button>
               </div>
 
-              {/* Drawer Navigation Links */}
-              <div className="px-6 py-6 flex flex-col gap-3">
-                {mainPageLinks.map((link, idx) => (
+              {/* Drawer Navigation Accordion Links */}
+              <div className="px-5 py-5 flex flex-col gap-2">
+                {navItems.map((item, idx) => (
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.03 }}
-                    key={link.name}
+                    key={item.name}
+                    className="border-b border-slate-100 last:border-none pb-1"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between text-base font-josefin font-bold text-slate-800 hover:text-primary transition-colors py-2 border-b border-dashed border-slate-100"
-                    >
-                      <span>{link.name}</span>
-                      <ArrowRight className="w-4 h-4 text-slate-300" />
-                    </Link>
+                    <div className="flex items-center justify-between">
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="text-base font-josefin font-bold text-slate-800 hover:text-primary transition-colors py-2.5 flex-1"
+                      >
+                        {item.name}
+                      </Link>
+
+                      {item.hasMenu && (
+                        <button
+                          onClick={() => toggleMobileExpand(item.name)}
+                          className="p-2 text-slate-400 hover:text-primary transition-colors"
+                        >
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileExpanded === item.name ? "rotate-180 text-primary" : ""
+                            }`}
+                          />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Accordion Sub Menu */}
+                    <AnimatePresence>
+                      {item.hasMenu && mobileExpanded === item.name && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden pl-3 pb-3 space-y-2 text-xs font-josefin"
+                        >
+                          {item.name === "Services" && item.servicesCols && (
+                            <>
+                              <div className="font-mono text-[10px] text-slate-400 uppercase tracking-widest pt-2">
+                                Web & Software Development
+                              </div>
+                              {item.servicesCols.col1.items.map((sub, i) => (
+                                <Link
+                                  key={i}
+                                  href={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="flex items-center gap-2.5 text-slate-700 hover:text-primary py-1.5"
+                                >
+                                  {sub.icon}
+                                  <span className="font-bold">{sub.name}</span>
+                                </Link>
+                              ))}
+
+                              <div className="font-mono text-[10px] text-slate-400 uppercase tracking-widest pt-2">
+                                Growth & Security
+                              </div>
+                              {item.servicesCols.col2.items.map((sub, i) => (
+                                <Link
+                                  key={i}
+                                  href={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="flex items-center gap-2.5 text-slate-700 hover:text-primary py-1.5"
+                                >
+                                  {sub.icon}
+                                  <span className="font-bold">{sub.name}</span>
+                                </Link>
+                              ))}
+                            </>
+                          )}
+
+                          {item.name === "Work" && item.workItems && (
+                            <>
+                              {item.workItems.map((sub, i) => (
+                                <Link
+                                  key={i}
+                                  href={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="flex items-center gap-2.5 text-slate-700 hover:text-primary py-1.5"
+                                >
+                                  {sub.icon}
+                                  <span className="font-bold">{sub.name}</span>
+                                </Link>
+                              ))}
+                            </>
+                          )}
+
+                          {item.name === "Why Us" && item.whyUsItems && (
+                            <>
+                              {item.whyUsItems.map((sub, i) => (
+                                <Link
+                                  key={i}
+                                  href={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="flex items-center gap-2.5 text-slate-700 hover:text-primary py-1.5"
+                                >
+                                  {sub.icon}
+                                  <span className="font-bold">{sub.name}</span>
+                                </Link>
+                              ))}
+                            </>
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 ))}
 
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: mainPageLinks.length * 0.03 }}
-                  className="mt-3"
-                >
+                <div className="mt-4">
                   <Link
                     href="/contact"
                     onClick={() => setIsOpen(false)}
@@ -167,7 +555,7 @@ export default function Header() {
                   >
                     Get a Free Quote <ArrowRight className="w-4 h-4" />
                   </Link>
-                </motion.div>
+                </div>
               </div>
 
               {/* Drawer Footer Details */}

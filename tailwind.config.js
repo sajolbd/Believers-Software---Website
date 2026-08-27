@@ -24,6 +24,13 @@ module.exports = {
         },
       },
 
+      /* ---------- FONT FAMILY ---------- */
+      fontFamily: {
+        sans: ["var(--font-josefin-sans)", "sans-serif"],
+        josefin: ["var(--font-josefin-sans)", "sans-serif"],
+        mono: ["var(--font-josefin-sans)", "monospace"],
+      },
+
       /* ---------- MARQUEE ANIMATION ---------- */
       keyframes: {
         marquee: {

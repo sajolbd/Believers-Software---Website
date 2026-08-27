@@ -55,9 +55,9 @@ export default function Hero() {
               FULL-SERVICE WEB &amp; DIGITAL GROWTH AGENCY
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-serif font-normal text-slate-900 leading-[1.18] mb-6">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-josefin font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
               A website that actually earns its keep —{" "}
-              <span className="text-primary italic font-serif">
+              <span className="text-primary italic font-normal">
                 design, SEO, and security under one roof.
               </span>
             </h1>
