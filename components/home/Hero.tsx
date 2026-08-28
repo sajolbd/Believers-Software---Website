@@ -42,8 +42,8 @@ export default function Hero() {
       `}</style>
 
       {/* Background Ambient Glow Orbs */}
-      <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 to-orange-500/5 blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-primary/5 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 to-orange-500/5 blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-primary/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-[1180px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center min-h-[520px]">

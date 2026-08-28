@@ -75,7 +75,7 @@ export default function Testimonials() {
       id="testimonials"
     >
       {/* Background Subtle Glow & Grid */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-primary/5 via-amber-500/5 to-primary/5 blur-[120px] pointer-events-none rounded-full" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-primary/5 via-amber-500/5 to-primary/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-[1180px] mx-auto px-6 relative z-10">
         {/* Header Section with Navigation */}

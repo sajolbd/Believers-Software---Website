@@ -33,8 +33,8 @@ export default function Differentiation() {
   return (
     <section className="py-8 md:py-12 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 border-b border-slate-100 relative z-10 overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 rounded-full bg-primary/5 blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-72 h-72 rounded-full bg-[#3FC7B0]/5 blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 rounded-full bg-primary/5 blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute top-1/2 right-0 -translate-y-1/2 w-72 h-72 rounded-full bg-[#3FC7B0]/5 blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-[1180px] mx-auto px-6">
         {/* Header Tag */}

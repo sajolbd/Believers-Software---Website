@@ -46,7 +46,7 @@ export default function WhyUs() {
       id="why-us"
     >
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-orange-500/5 to-primary/5 blur-[140px] pointer-events-none rounded-full" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-orange-500/5 to-primary/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-[1180px] mx-auto px-6 relative z-10">
         {/* Section Header */}

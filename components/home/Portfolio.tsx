@@ -104,10 +104,10 @@ export default function Portfolio() {
       : projects.filter((p) => p.categorySlug === activeCategory);
 
   return (
-    <section className="py-12 bg-gradient-to-b from-white via-slate-50/50 to-white relative z-10" id="portfolio">
+    <section className="py-12 bg-gradient-to-b from-white via-slate-50/50 to-white relative z-10 overflow-hidden" id="portfolio">
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute top-1/3 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute bottom-10 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-[1180px] mx-auto px-6">
         {/* Section Header */}

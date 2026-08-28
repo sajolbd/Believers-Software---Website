@@ -61,8 +61,8 @@ export default function Services({ showBottomCta = true }: ServicesProps) {
   return (
     <section className="py-8 md:py-12 bg-white relative border-b border-slate-100 overflow-hidden" id="services">
       {/* Background ambient glow orbs */}
-      <div className="absolute top-[-5%] right-[5%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 via-orange-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-[-5%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#3FC7B0]/10 via-indigo-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute top-[-5%] right-[5%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 via-orange-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
+      <div className="hidden md:block absolute bottom-[-5%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#3FC7B0]/10 via-indigo-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-[1180px] mx-auto px-6">
         <div className="max-w-3xl mb-16">
