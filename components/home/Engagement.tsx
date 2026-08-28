@@ -53,7 +53,7 @@ export default function Engagement() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/80 border-t border-slate-100 relative z-10 overflow-hidden" id="engagement">
+    <section className="py-12 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/80 border-t border-slate-100 relative z-10 overflow-hidden" id="engagement">
       {/* Subtle Ambient Background Glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-orange-500/5 to-teal-500/5 blur-[140px] pointer-events-none rounded-full" />
 
@@ -90,11 +90,10 @@ export default function Engagement() {
           {models.map((model, idx) => (
             <div
               key={idx}
-              className={`p-8 sm:p-9 rounded-3xl border flex flex-col justify-between transition-all duration-300 relative overflow-hidden group bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 ${
-                model.featured
+              className={`p-8 sm:p-9 rounded-3xl border flex flex-col justify-between transition-all duration-300 relative overflow-hidden group bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 ${model.featured
                   ? "border-primary/50 shadow-md shadow-primary/5"
                   : "border-slate-200/80"
-              }`}
+                }`}
             >
               {/* Top Highlight Accent Bar for Featured Card */}
               {model.featured && (
@@ -105,11 +104,10 @@ export default function Engagement() {
                 {/* Header Tag & Icon */}
                 <div className="flex items-center justify-between mb-6">
                   <span
-                    className={`inline-block px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider ${
-                      model.featured
+                    className={`inline-block px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider ${model.featured
                         ? "bg-primary text-white shadow-md shadow-primary/20"
                         : "bg-slate-100 text-slate-600 border border-slate-200/60"
-                    }`}
+                      }`}
                   >
                     {model.tag}
                   </span>
@@ -143,11 +141,10 @@ export default function Engagement() {
               {/* Action CTA Button */}
               <Link
                 href="#contact"
-                className={`w-full py-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 ${
-                  model.featured
+                className={`w-full py-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 ${model.featured
                     ? "bg-primary text-white hover:bg-primary/90 shadow-md shadow-primary/20"
                     : "bg-slate-900 text-white hover:bg-primary shadow-sm"
-                }`}
+                  }`}
               >
                 <span>{model.ctaText}</span>
                 <ArrowRight className="w-4 h-4" />
