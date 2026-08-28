@@ -172,7 +172,7 @@ export default function Portfolio() {
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                
+
                 {/* Subtle Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20" />
 
@@ -230,12 +230,12 @@ export default function Portfolio() {
         </div>
 
         {/* Footer Note */}
-        <div className="mt-12 p-4 rounded-2xl bg-slate-50 border border-slate-200/60 flex items-start gap-3 text-xs text-slate-500 font-mono max-w-3xl leading-relaxed">
+        {/* <div className="mt-12 p-4 rounded-2xl bg-slate-50 border border-slate-200/60 flex items-start gap-3 text-xs text-slate-500 font-mono max-w-3xl leading-relaxed">
           <Layers className="w-4 h-4 text-primary shrink-0 mt-0.5" />
           <span>
             Project names and identifying client details are withheld or generalized per client confidentiality. Ask us for live demo walkthroughs and references relevant to your industry.
           </span>
-        </div>
+        </div> */}
       </div>
     </section>
   );

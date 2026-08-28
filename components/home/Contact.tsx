@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { Mail, Phone, Clock, ArrowRight, CheckCircle2, MessageSquare, Loader2, X, Sparkles } from "lucide-react";
+import { Mail, Phone, Clock, MapPin, ArrowRight, CheckCircle2, MessageSquare, Loader2, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Contact() {
@@ -58,7 +58,7 @@ export default function Contact() {
       if (process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID) {
         await emailjs.send(serviceID, templateID, templateParams, publicKey);
       } else if (formRef.current) {
-        await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey).catch(() => {});
+        await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey).catch(() => { });
       }
     } catch (err) {
       console.log("EmailJS Sending (fallback mode enabled):", err);
@@ -71,14 +71,14 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white via-slate-50/70 to-white border-t border-slate-100 relative z-10" id="contact">
+    <section className="py-12 bg-gradient-to-b from-white via-slate-50/70 to-white border-t border-slate-100 relative z-10" id="contact">
       {/* Subtle Background Glows */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-[1180px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Contact Details Column */}
-          <div className="lg:col-span-5">
+          <div className="md:col-span-5">
             <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
               <span className="w-5 h-[2px] bg-primary" />
               Let's Build Something
@@ -93,7 +93,7 @@ export default function Contact() {
               about your project and we'll reply with next steps.
             </p>
 
-            <div className="flex flex-col gap-6 mb-8">
+            <div className="flex flex-col gap-5 mb-8">
               {/* Email */}
               <div className="flex gap-4 items-center p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
@@ -123,10 +123,10 @@ export default function Contact() {
                   </span>
                   <div className="flex items-center gap-3">
                     <a
-                      href="tel:01716878931"
+                      href="tel:+8801716878931"
                       className="font-josefin font-bold text-slate-900 text-base hover:text-primary transition-colors"
                     >
-                      01716878931
+                      +8801716878931
                     </a>
                     <span className="text-slate-300">|</span>
                     <a
@@ -138,6 +138,21 @@ export default function Contact() {
                       <MessageSquare className="w-3.5 h-3.5" /> WhatsApp
                     </a>
                   </div>
+                </div>
+              </div>
+
+              {/* Office Address */}
+              <div className="flex gap-4 items-center p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 text-blue-600">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="block font-mono text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">
+                    Office Address
+                  </span>
+                  <span className="font-josefin font-bold text-slate-900 text-sm sm:text-base leading-snug block">
+                    House No 1787, Merul Badda, Dhaka 1212
+                  </span>
                 </div>
               </div>
 
@@ -159,7 +174,7 @@ export default function Contact() {
           </div>
 
           {/* Form Column */}
-          <div className="lg:col-span-7">
+          <div className="md:col-span-7">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
@@ -231,11 +246,10 @@ export default function Contact() {
                     return (
                       <label
                         key={svc.value}
-                        className={`relative cursor-pointer px-4 py-2.5 rounded-full text-xs font-mono font-semibold border transition-all duration-200 select-none ${
-                          isChecked
-                            ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
-                            : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900"
-                        }`}
+                        className={`relative cursor-pointer px-4 py-2.5 rounded-full text-xs font-mono font-semibold border transition-all duration-200 select-none ${isChecked
+                          ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
+                          : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900"
+                          }`}
                       >
                         <input
                           type="checkbox"
