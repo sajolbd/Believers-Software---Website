@@ -28,8 +28,8 @@ export default function Home() {
       <TechStack />
       <Engagement />
       <Guarantee />
-      <FAQ />
-      <Contact /> */}
+      <FAQ /> */}
+      <Contact />
     </>
   );
 }
