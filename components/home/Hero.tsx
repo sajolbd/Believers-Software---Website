@@ -48,8 +48,8 @@ export default function Hero() {
       <div className="max-w-[1180px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center min-h-[520px]">
 
-          {/* Left Content Column */}
-          <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col items-start text-left">
+          {/* Left Content Column (First on Mobile & Desktop) */}
+          <div className="lg:col-span-7 order-1 lg:order-1 flex flex-col items-start text-left">
             <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-primary uppercase mb-6">
               <span className="w-5 h-[2px] bg-primary" />
               FULL-SERVICE WEB &amp; DIGITAL GROWTH AGENCY
@@ -73,14 +73,14 @@ export default function Hero() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-3">
               <a
-                href="/contact"
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold bg-primary text-white hover:bg-[#ff5d47] shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="/services"
+                href="#services"
                 className="inline-flex items-center justify-center px-7 py-4 rounded-xl font-bold border border-slate-200 text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Explore Our Services
@@ -103,9 +103,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: 3D Orbit Levitating Diagram (Universal for Mobile & Desktop) */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex items-center justify-center relative w-full h-[380px] xs:h-[420px] sm:h-[480px] lg:h-[540px]">
-            <div className="relative w-full max-w-[460px] h-[380px] xs:h-[420px] sm:h-[480px] lg:h-[500px] flex items-center justify-center scale-[0.82] xs:scale-[0.92] sm:scale-95 lg:scale-100 origin-center transition-transform">
+          {/* Right Column: 3D Orbit Levitating Diagram (Second on Mobile, Universal Scaling) */}
+          <div className="lg:col-span-5 order-2 lg:order-2 flex items-center justify-center relative w-full h-[320px] min-[380px]:h-[360px] xs:h-[400px] sm:h-[480px] lg:h-[540px] overflow-hidden">
+            <div className="relative w-full max-w-[460px] h-[320px] min-[380px]:h-[360px] xs:h-[400px] sm:h-[480px] lg:h-[500px] flex items-center justify-center scale-[0.65] min-[380px]:scale-[0.75] xs:scale-[0.85] sm:scale-95 lg:scale-100 origin-center transition-transform">
 
               {/* SVG Infinite Flowing Dotted Lines */}
               <svg
