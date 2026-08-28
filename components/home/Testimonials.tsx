@@ -125,7 +125,7 @@ export default function Testimonials() {
         </div>
 
         {/* Swiper Slider */}
-        <div className="testimonials-swiper-container -mx-2 px-2 py-4">
+        <div className="testimonials-swiper-container w-full max-w-full overflow-hidden py-4">
           <Swiper
             modules={[Autoplay, Navigation, Pagination]}
             onSwiper={setSwiperInstance}

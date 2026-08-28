@@ -44,12 +44,8 @@ export default function Stats() {
       <div className="max-w-[1180px] mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 rounded-2xl bg-[#FCFDFD] border border-slate-100 text-center hover:border-primary/20 hover:shadow-sm hover:shadow-primary/5 transition-all duration-300 group"
             >
               <span className="block font-josefin text-4xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">
@@ -68,7 +64,7 @@ export default function Stats() {
                 {stat.label}
               </h4>
               <p className="text-xs text-slate-400 font-mono">{stat.sub}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

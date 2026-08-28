@@ -185,7 +185,7 @@ export default function Contact() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="p-8 sm:p-10 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl shadow-slate-200/50 relative overflow-hidden"
+              className="p-5 sm:p-8 sm:p-10 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl shadow-slate-200/50 relative overflow-hidden"
             >
               <h3 className="text-2xl font-josefin font-bold text-slate-900 mb-6 flex items-center gap-2">
                 Send Project Details
