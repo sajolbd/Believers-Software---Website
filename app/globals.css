@@ -95,8 +95,8 @@ textarea {
   isolation: isolate;
   overflow: hidden;
   background-color: theme("colors.primary");
-  color: #000;
-  transition: color 300ms ease;
+  color: #ffffff;
+  transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms ease, box-shadow 300ms ease;
 }
 
 .btn-slide-primary::before {
@@ -104,13 +104,37 @@ textarea {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-color: #ffffff;
+  background: linear-gradient(90deg, #ff6c57 0%, #e0321a 100%);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 300ms ease;
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-slide-primary:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-slide-dark {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #0f172a;
+  color: #ffffff;
+  transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms ease, box-shadow 300ms ease;
+}
+
+.btn-slide-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, theme("colors.primary") 0%, #ff6c57 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-slide-dark:hover::before {
   transform: scaleX(1);
 }
 

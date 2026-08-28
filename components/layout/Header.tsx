@@ -366,7 +366,7 @@ export default function Header() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-primary text-white border border-primary hover:bg-[#ff5d47] hover:border-[#ff5d47] shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider btn-slide-primary shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5"
             >
               Get a Free Quote
             </Link>

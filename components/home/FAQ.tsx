@@ -141,7 +141,7 @@ export default function FAQ() {
 
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-mono font-bold text-xs uppercase tracking-wider bg-primary text-white hover:bg-primary/90 transition-all shadow-md shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-mono font-bold text-xs uppercase tracking-wider btn-slide-primary shadow-md shrink-0"
           >
             <span>Ask Us Directly</span>
             <ArrowRight className="w-4 h-4 text-white" />

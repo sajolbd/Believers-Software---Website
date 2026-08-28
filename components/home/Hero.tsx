@@ -74,14 +74,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-3">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold bg-primary text-white hover:bg-[#ff5d47] shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold btn-slide-primary shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center justify-center px-7 py-4 rounded-xl font-bold border border-slate-200 text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center px-7 py-4 rounded-xl font-bold btn-slide-dark border border-slate-200 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Explore Our Services
               </a>

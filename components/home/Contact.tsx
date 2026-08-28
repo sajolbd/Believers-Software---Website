@@ -292,7 +292,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold font-josefin text-base bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-70"
+                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold font-josefin text-base btn-slide-primary shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-70"
               >
                 {isSubmitting ? (
                   <>
