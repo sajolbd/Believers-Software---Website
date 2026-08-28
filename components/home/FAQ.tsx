@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import Link from "next/link";
+import { Plus, Minus, HelpCircle, ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function FAQ() {
@@ -53,29 +54,58 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 bg-white relative z-10" id="faq">
-      <div className="max-w-[1180px] mx-auto px-6">
-        <div className="max-w-3xl mb-16">
-          <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4 flex items-center gap-2">
-            <span className="w-4 h-[1px] bg-primary" />
-            Common Questions
+    <section className="py-12 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/80 border-t border-slate-100 relative z-10 overflow-hidden" id="faq">
+      {/* Subtle Background Ambient Glow */}
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-indigo-500/5 to-teal-500/5 blur-[140px] pointer-events-none rounded-full" />
+
+      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
+            <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
+              <span className="w-5 h-[2px] bg-primary" />
+              Common Questions
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+              Frequently Asked Questions
+            </h2>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-josefin font-bold text-slate-900">
-            Frequently Asked Questions
-          </h2>
+
+          <div className="hidden sm:flex items-center gap-2 bg-white border border-slate-200/80 shadow-sm rounded-full px-4 py-2 text-xs font-mono text-slate-700 self-start md:self-auto">
+            <Sparkles className="w-4 h-4 text-primary shrink-0" />
+            <span className="font-bold text-slate-900 font-josefin text-sm">Quick Answers</span>
+            <span className="text-slate-300">•</span>
+            <span className="text-slate-500">8 Key Topics</span>
+          </div>
         </div>
 
-        <div className="max-w-3xl mx-auto flex flex-col divide-y divide-slate-100">
+        {/* Accordion Cards Container */}
+        <div className="max-w-4xl mx-auto flex flex-col gap-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndexes.includes(index);
             return (
-              <div key={index} className="py-5 first:pt-0 last:pb-0">
+              <div
+                key={index}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
+                    ? "bg-white border-primary/40 shadow-lg shadow-primary/5"
+                    : "bg-white/95 backdrop-blur-sm border-slate-200/80 hover:border-slate-300 hover:shadow-sm"
+                  }`}
+              >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="flex justify-between items-center w-full text-left font-josefin font-bold text-slate-800 text-base sm:text-lg py-2 hover:text-primary transition-colors focus:outline-none group"
+                  className="flex justify-between items-center w-full text-left font-josefin font-bold text-slate-900 text-base sm:text-lg p-6 sm:p-7 hover:text-primary transition-colors focus:outline-none group cursor-pointer"
                 >
-                  <span>{faq.q}</span>
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-200">
+                  <div className="flex items-center gap-3.5 pr-4">
+                    <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                      #0{index + 1}
+                    </span>
+                    <span className="leading-snug">{faq.q}</span>
+                  </div>
+
+                  <span className={`flex-shrink-0 w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen
+                      ? "bg-primary text-white border-primary shadow-sm shadow-primary/20 rotate-180"
+                      : "bg-slate-50 border-slate-200/70 text-slate-500 group-hover:border-primary/40 group-hover:text-primary"
+                    }`}>
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </span>
                 </button>
@@ -89,9 +119,11 @@ export default function FAQ() {
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="text-sm text-slate-500 leading-relaxed pt-3 pb-2 max-w-2xl">
-                        {faq.a}
-                      </p>
+                      <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-0 border-t border-slate-100/60 mt-1">
+                        <p className="text-sm text-slate-600 leading-relaxed max-w-3xl pt-4">
+                          {faq.a}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -99,7 +131,33 @@ export default function FAQ() {
             );
           })}
         </div>
+
+        {/* Bottom Contact Help Banner */}
+        <div className="mt-12 max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <HelpCircle className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="text-lg font-josefin font-bold text-white mb-1">
+                Have a question not answered here?
+              </h4>
+              <p className="text-slate-400 text-xs sm:text-sm">
+                Send us your project details or questions and we'll reply within 1 business day.
+              </p>
+            </div>
+          </div>
+
+          <Link
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-mono font-bold text-xs uppercase tracking-wider bg-primary text-white hover:bg-primary/90 transition-all shadow-md shrink-0"
+          >
+            <span>Ask Us Directly</span>
+            <ArrowRight className="w-4 h-4 text-white" />
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
+
