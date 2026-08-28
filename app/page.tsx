@@ -25,8 +25,8 @@ export default function Home() {
       <WhyUs />
       <Process />
       <Industries />
-      {/* <TechStack />
-      <Engagement />
+      <TechStack />
+      {/* <Engagement />
       <Guarantee />
       <FAQ /> */}
       <Contact />
