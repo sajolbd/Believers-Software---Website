@@ -20,11 +20,11 @@ export default function Home() {
       <Stats />
       <Differentiation />
       <Services />
-      {/* <Testimonials />
+      <Testimonials />
       <Portfolio />
       <WhyUs />
       <Process />
-      <Industries />
+      {/* <Industries />
       <TechStack />
       <Engagement />
       <Guarantee />
