@@ -55,7 +55,7 @@ export default function TechStack() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white via-slate-50/70 to-white border-t border-slate-100 relative z-10 overflow-hidden" id="tech-stack">
+    <section className="py-12 bg-gradient-to-b from-white via-slate-50/70 to-white border-t border-slate-100 relative z-10 overflow-hidden" id="tech-stack">
       {/* Subtle Background Ambient Glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-indigo-500/5 to-teal-500/5 blur-[140px] pointer-events-none rounded-full" />
 
