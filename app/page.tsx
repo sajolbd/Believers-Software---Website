@@ -24,8 +24,8 @@ export default function Home() {
       <Portfolio />
       <WhyUs />
       <Process />
-      {/* <Industries />
-      <TechStack />
+      <Industries />
+      {/* <TechStack />
       <Engagement />
       <Guarantee />
       <FAQ /> */}
