@@ -45,28 +45,19 @@ export default function Guarantee() {
 
       <div className="max-w-[1180px] mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-primary" />
-              Our Commitment
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
-              What You Can Expect from Believers Software
-            </h2>
-            <p className="text-slate-600 leading-relaxed mt-4 text-base">
-              These aren't upsells — they're the baseline for how we work, whether you
-              hire us for a single WordPress website or a full design, SEO, marketing,
-              and maintenance package.
-            </p>
+        <div className="max-w-3xl mb-12">
+          <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-primary" />
+            Our Commitment
           </div>
-
-          <div className="hidden sm:flex items-center gap-2 bg-white border border-slate-200/80 shadow-sm rounded-full px-4 py-2 text-xs font-mono text-slate-700 self-start md:self-auto">
-            <Sparkles className="w-4 h-4 text-primary shrink-0" />
-            <span className="font-bold text-slate-900 font-josefin text-sm">Accountable Standard</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-500">100% Transparency</span>
-          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+            What You Can Expect from Believers Software
+          </h2>
+          <p className="text-slate-600 leading-relaxed mt-4 text-base">
+            These aren't upsells — they're the baseline for how we work, whether you
+            hire us for a single WordPress website or a full design, SEO, marketing,
+            and maintenance package.
+          </p>
         </div>
 
         {/* 4-Column Grid */}

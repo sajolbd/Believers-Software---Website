@@ -60,23 +60,14 @@ export default function FAQ() {
 
       <div className="max-w-[1180px] mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-primary" />
-              Common Questions
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
-              Frequently Asked Questions
-            </h2>
+        <div className="max-w-3xl mb-12">
+          <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-primary" />
+            Common Questions
           </div>
-
-          <div className="hidden sm:flex items-center gap-2 bg-white border border-slate-200/80 shadow-sm rounded-full px-4 py-2 text-xs font-mono text-slate-700 self-start md:self-auto">
-            <Sparkles className="w-4 h-4 text-primary shrink-0" />
-            <span className="font-bold text-slate-900 font-josefin text-sm">Quick Answers</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-500">8 Key Topics</span>
-          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+            Frequently Asked Questions
+          </h2>
         </div>
 
         {/* Accordion Cards Container */}

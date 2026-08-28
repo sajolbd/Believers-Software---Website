@@ -59,30 +59,21 @@ export default function Engagement() {
 
       <div className="max-w-[1180px] mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-primary" />
-              How We Work Together
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
-              Engagement models built around what you actually need.
-            </h2>
-            <p className="text-slate-600 leading-relaxed mt-4 text-base">
-              Not every business needs the same relationship with an agency. Some need
-              a website built once and handed over; others need an ongoing partner
-              across development, SEO, marketing, and security. We scope the
-              engagement to match, rather than pushing every client into the same
-              package.
-            </p>
+        <div className="max-w-3xl mb-12">
+          <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-primary" />
+            How We Work Together
           </div>
-
-          <div className="hidden sm:flex items-center gap-2 bg-white border border-slate-200/80 shadow-sm rounded-full px-4 py-2 text-xs font-mono text-slate-700 self-start md:self-auto">
-            <Sparkles className="w-4 h-4 text-primary shrink-0" />
-            <span className="font-bold text-slate-900 font-josefin text-sm">Flexible Partnerships</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-500">Zero Hidden Contracts</span>
-          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+            Engagement models built around what you actually need.
+          </h2>
+          <p className="text-slate-600 leading-relaxed mt-4 text-base">
+            Not every business needs the same relationship with an agency. Some need
+            a website built once and handed over; others need an ongoing partner
+            across development, SEO, marketing, and security. We scope the
+            engagement to match, rather than pushing every client into the same
+            package.
+          </p>
         </div>
 
         {/* 3-Column Pricing Cards */}
