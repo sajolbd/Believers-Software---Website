@@ -157,84 +157,77 @@ export default function Portfolio() {
         </div>
 
         {/* Portfolio Showcase Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.div
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                key={project.id}
-                className="group rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-500 flex flex-col justify-between"
-              >
-                {/* Project Image Mockup Container */}
-                <div className="h-48 sm:h-52 relative overflow-hidden bg-slate-900">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="group rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+            >
+              {/* Project Image Mockup Container */}
+              <div className="h-48 sm:h-52 relative overflow-hidden bg-slate-900">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                
+                {/* Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20" />
 
-                  {/* Subtle Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20" />
-
-                  {/* Floating Category Badge */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-slate-900/85 backdrop-blur-md text-white border border-white/10 shadow-lg flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                      {project.category}
-                    </span>
-                  </div>
-
-                  {/* Action Link Icon */}
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md text-slate-900 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg">
-                      <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-                    </span>
-                  </div>
+                {/* Floating Category Badge */}
+                <div className="absolute top-3 left-3 z-10">
+                  <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-slate-900/85 backdrop-blur-md text-white border border-white/10 shadow-lg flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                    {project.category}
+                  </span>
                 </div>
 
-                {/* Card Content Body */}
-                <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow">
-                  <div>
-                    <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
-                      {project.desc}
-                    </p>
+                {/* Action Link Icon */}
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md text-slate-900 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg">
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                  </span>
+                </div>
+              </div>
+
+              {/* Card Content Body */}
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow">
+                <div>
+                  <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    {project.desc}
+                  </p>
+                </div>
+
+                {/* Results & Key Metrics */}
+                <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-2.5 mt-auto">
+                  <div className="bg-slate-50/80 p-2.5 rounded-xl border border-slate-100 group-hover:border-primary/10 transition-colors">
+                    <span className="block font-mono text-[9px] text-slate-400 uppercase tracking-wider mb-0.5">
+                      {project.statLabel1}
+                    </span>
+                    <strong className="text-slate-900 text-xs font-bold font-josefin flex items-center gap-1">
+                      <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
+                      {project.statValue1}
+                    </strong>
                   </div>
 
-                  {/* Results & Key Metrics */}
-                  <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-2.5 mt-auto">
-                    <div className="bg-slate-50/80 p-2.5 rounded-xl border border-slate-100 group-hover:border-primary/10 transition-colors">
-                      <span className="block font-mono text-[9px] text-slate-400 uppercase tracking-wider mb-0.5">
-                        {project.statLabel1}
-                      </span>
-                      <strong className="text-slate-900 text-xs font-bold font-josefin flex items-center gap-1">
-                        <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
-                        {project.statValue1}
-                      </strong>
-                    </div>
-
-                    <div className="bg-slate-50/80 p-2.5 rounded-xl border border-slate-100 group-hover:border-primary/10 transition-colors">
-                      <span className="block font-mono text-[9px] text-slate-400 uppercase tracking-wider mb-0.5">
-                        {project.statLabel2}
-                      </span>
-                      <strong className="text-primary text-xs font-bold font-josefin">
-                        {project.statValue2}
-                      </strong>
-                    </div>
+                  <div className="bg-slate-50/80 p-2.5 rounded-xl border border-slate-100 group-hover:border-primary/10 transition-colors">
+                    <span className="block font-mono text-[9px] text-slate-400 uppercase tracking-wider mb-0.5">
+                      {project.statLabel2}
+                    </span>
+                    <strong className="text-primary text-xs font-bold font-josefin">
+                      {project.statValue2}
+                    </strong>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* Footer Note */}
         <div className="mt-12 p-4 rounded-2xl bg-slate-50 border border-slate-200/60 flex items-start gap-3 text-xs text-slate-500 font-mono max-w-3xl leading-relaxed">

@@ -77,13 +77,9 @@ export default function WhyUs() {
         {/* Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {items.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group p-8 rounded-3xl bg-white/90 backdrop-blur-sm border border-slate-200/70 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_-8px_rgba(0,0,0,0.12)] hover:border-primary/30 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+              className="group p-8 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/70 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_-8px_rgba(0,0,0,0.12)] hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
             >
               {/* Top Accent Step Number */}
               <div className="absolute top-6 right-6 font-mono font-bold text-3xl text-slate-200/80 group-hover:text-primary/20 transition-colors duration-300">
@@ -112,7 +108,7 @@ export default function WhyUs() {
                   {item.tag}
                 </span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
