@@ -42,9 +42,9 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_believers";
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_believers";
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key_believers";
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_b1y766e";
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_e2xl93v";
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "BfNzv7xG6apsAHa0D";
 
     const templateParams = {
       from_name: formData.name,
@@ -55,13 +55,9 @@ export default function Contact() {
     };
 
     try {
-      if (process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID) {
-        await emailjs.send(serviceID, templateID, templateParams, publicKey);
-      } else if (formRef.current) {
-        await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey).catch(() => { });
-      }
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
     } catch (err) {
-      console.log("EmailJS Sending (fallback mode enabled):", err);
+      console.log("EmailJS Send Error:", err);
     } finally {
       setIsSubmitting(false);
       setShowSuccessModal(true);
