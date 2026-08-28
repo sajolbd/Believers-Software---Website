@@ -46,23 +46,34 @@ export default function Contact() {
     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_e2xl93v";
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "BfNzv7xG6apsAHa0D";
 
+    // Included parameter aliases so all EmailJS template variable names work seamlessly
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
       phone_number: formData.phone || "Not provided",
       services: selectedServices.length > 0 ? selectedServices.join(", ") : "General Inquiry",
       message: formData.message,
+      name: formData.name,
+      email: formData.email,
+      reply_to: formData.email,
+      user_name: formData.name,
+      user_email: formData.email,
+      phone: formData.phone || "Not provided",
     };
 
     try {
-      await emailjs.send(serviceID, templateID, templateParams, publicKey);
-    } catch (err) {
-      console.log("EmailJS Send Error:", err);
+      const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      console.log("EmailJS Sent Successfully:", response.status, response.text);
+      if (response.status === 200 || response.text === "OK") {
+        setShowSuccessModal(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setSelectedServices([]);
+      }
+    } catch (err: any) {
+      console.error("EmailJS Error:", err);
+      alert(`EmailJS Send Failed (${err?.status || "Error"}): ${err?.text || err?.message || "Please check your EmailJS Service & Template settings."}`);
     } finally {
       setIsSubmitting(false);
-      setShowSuccessModal(true);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setSelectedServices([]);
     }
   };
 

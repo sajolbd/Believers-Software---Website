@@ -37,10 +37,13 @@ h6 {
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   scroll-behavior: smooth;
   scrollbar-color: theme("colors.primary") #f8fafc;
   scrollbar-width: thin;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 ::-webkit-scrollbar {
