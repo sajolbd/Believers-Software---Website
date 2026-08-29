@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -7,25 +10,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Logo & Description */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center">
-                <svg className="w-6 h-6" viewBox="0 0 32 32" fill="none">
-                  <path
-                    d="M10 6C10 6 18 4 23 9C27 13 26 18 21 21C16 24 10 25 10 25"
-                    stroke="url(#logo-grad-footer)"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                  />
-                  <linearGradient id="logo-grad-footer" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FF4B33" />
-                    <stop offset="100%" stopColor="#FF8C33" />
-                  </linearGradient>
-                </svg>
-              </div>
-              <span className="font-josefin font-bold text-lg text-slate-900">
-                Believers<span className="text-primary">.</span>
-              </span>
-            </div>
+            {/* Brand Logo */}
+            <Link href="/" className="flex items-center gap-3 group">
+              <Image
+                src="/images/logo.png"
+                alt="Believers Software"
+                width={200}
+                height={60}
+                className="h-8 sm:h-14 w-auto object-contain"
+                priority
+              />
+            </Link>
             <p className="text-sm leading-relaxed text-slate-500 max-w-[280px]">
               A full-service digital agency offering JavaScript &amp; WordPress development, website maintenance, SEO, digital &amp; social media marketing, and WordPress security under one roof.
             </p>

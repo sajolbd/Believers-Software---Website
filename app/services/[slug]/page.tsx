@@ -309,3 +309,13 @@ export default function SingleServicePage({ params }: Props) {
     </main>
   );
 }
+
+export function generateStaticParams() {
+  return [
+    { slug: "web-development" },
+    { slug: "seo" },
+    { slug: "digital-marketing" },
+    { slug: "security" },
+    { slug: "maintenance" },
+  ];
+}

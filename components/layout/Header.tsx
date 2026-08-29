@@ -25,6 +25,7 @@ import {
   Sparkles,
   BookOpen,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -180,32 +181,22 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/75 backdrop-blur-xl border-b border-slate-200/60 shadow-sm py-3.5"
-            : "bg-white/60 backdrop-blur-lg border-b border-slate-100/40 py-4 sm:py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${scrolled
+          ? "bg-white/75 backdrop-blur-xl border-b border-slate-200/60 shadow-sm py-3.5"
+          : "bg-white/60 backdrop-blur-lg border-b border-slate-100/40 py-4 sm:py-5"
+          }`}
       >
         <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center border border-slate-200/50 shadow-xs transform group-hover:scale-105 transition-transform duration-300">
-              <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none">
-                <path
-                  d="M10 6C10 6 18 4 23 9C27 13 26 18 21 21C16 24 10 25 10 25"
-                  stroke="url(#logo-grad-header)"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-                <linearGradient id="logo-grad-header" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FF4B33" />
-                  <stop offset="100%" stopColor="#FF8C33" />
-                </linearGradient>
-              </svg>
-            </div>
-            <span className="font-josefin font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-primary transition-colors duration-300">
-              Believers<span className="text-primary font-black">.</span>
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="Believers Software"
+              width={200}
+              height={60}
+              className="h-8 sm:h-14 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navlinks with Coalition Mega Menu Dropdowns */}
@@ -219,25 +210,22 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-primary ${
-                    activeDropdown === item.name ? "text-primary" : "text-slate-700"
-                  }`}
+                  className={`inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-primary ${activeDropdown === item.name ? "text-primary" : "text-slate-700"
+                    }`}
                 >
                   <span>{item.name}</span>
                   {item.hasMenu && (
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        activeDropdown === item.name ? "rotate-180 text-primary" : "text-slate-400"
-                      }`}
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === item.name ? "rotate-180 text-primary" : "text-slate-400"
+                        }`}
                     />
                   )}
                 </Link>
 
                 {/* Dropdown Indicator Line */}
                 <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                    activeDropdown === item.name ? "w-full" : "w-0"
-                  }`}
+                  className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${activeDropdown === item.name ? "w-full" : "w-0"
+                    }`}
                 />
 
                 {/* Mega Menu Dropdowns */}
@@ -407,23 +395,13 @@ export default function Header() {
               {/* Drawer Top Bar */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3 group">
-                  <div className="w-9 h-9 rounded-xl bg-primary/5 flex items-center justify-center border border-slate-200/50 shadow-xs">
-                    <svg className="w-6 h-6" viewBox="0 0 32 32" fill="none">
-                      <path
-                        d="M10 6C10 6 18 4 23 9C27 13 26 18 21 21C16 24 10 25 10 25"
-                        stroke="url(#logo-grad-header-drawer)"
-                        strokeWidth="3.5"
-                        strokeLinecap="round"
-                      />
-                      <linearGradient id="logo-grad-header-drawer" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#FF4B33" />
-                        <stop offset="100%" stopColor="#FF8C33" />
-                      </linearGradient>
-                    </svg>
-                  </div>
-                  <span className="font-josefin font-extrabold text-lg tracking-tight text-slate-900">
-                    Believers<span className="text-primary font-black">.</span>
-                  </span>
+                  <Image
+                    src="/images/logo.png"
+                    alt="Believers Software"
+                    width={160}
+                    height={52}
+                    className="h-7 sm:h-8 w-auto object-contain"
+                  />
                 </Link>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -458,9 +436,8 @@ export default function Header() {
                           className="p-2 text-slate-400 hover:text-primary transition-colors"
                         >
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              mobileExpanded === item.name ? "rotate-180 text-primary" : ""
-                            }`}
+                            className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === item.name ? "rotate-180 text-primary" : ""
+                              }`}
                           />
                         </button>
                       )}
