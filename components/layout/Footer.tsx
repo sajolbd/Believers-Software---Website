@@ -124,6 +124,9 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-slate-500">
+                House No 1787, Merul Badda, Dhaka 1212
+              </li>
+              <li className="text-slate-500">
                 Available for remote projects worldwide
               </li>
             </ul>

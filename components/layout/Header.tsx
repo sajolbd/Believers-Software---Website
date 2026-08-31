@@ -353,10 +353,10 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:block">
             <Link
-              href="/contact"
+              href="/get-a-proposal"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider btn-slide-primary shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5"
             >
-              Get a Free Quote
+              Get a Proposal
             </Link>
           </div>
 
@@ -526,11 +526,11 @@ export default function Header() {
 
                 <div className="mt-4">
                   <Link
-                    href="/contact"
+                    href="/get-a-proposal"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold bg-primary text-white hover:bg-[#ff5d47] transition-colors shadow-md text-xs uppercase tracking-wider"
                   >
-                    Get a Free Quote <ArrowRight className="w-4 h-4" />
+                    Get a Proposal <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>

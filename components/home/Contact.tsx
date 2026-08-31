@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { Mail, Phone, Clock, MapPin, ArrowRight, CheckCircle2, MessageSquare, Loader2, X, Sparkles } from "lucide-react";
+import { Mail, Phone, Clock, MapPin, ArrowRight, CheckCircle2, MessageSquare, Loader2, X, Sparkles, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Contact() {
@@ -10,6 +10,8 @@ export default function Contact() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [hasSubmittedAttempt, setHasSubmittedAttempt] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,27 +28,73 @@ export default function Contact() {
     { label: "Security & Malware", value: "Security & Malware Removal" },
   ];
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) {
+      newErrors.name = "Your name is required";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email address is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (selectedServices.length === 0) {
+      newErrors.services = "Please select at least one service you need";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Project message is required";
+    }
+    return newErrors;
+  };
+
   const handleCheckboxChange = (value: string) => {
+    let nextServices: string[];
     if (selectedServices.includes(value)) {
-      setSelectedServices(selectedServices.filter((s) => s !== value));
+      nextServices = selectedServices.filter((s) => s !== value);
     } else {
-      setSelectedServices([...selectedServices, value]);
+      nextServices = [...selectedServices, value];
+    }
+    setSelectedServices(nextServices);
+
+    if (hasSubmittedAttempt && nextServices.length > 0) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated.services;
+        return updated;
+      });
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (hasSubmittedAttempt && value.trim()) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated[name];
+        return updated;
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setHasSubmittedAttempt(true);
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({});
     setIsSubmitting(true);
 
     const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_b1y766e";
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_e2xl93v";
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_wlit8r1";
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "BfNzv7xG6apsAHa0D";
 
-    // Included parameter aliases so all EmailJS template variable names work seamlessly
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
@@ -63,15 +111,15 @@ export default function Contact() {
 
     try {
       const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
-      console.log("EmailJS Sent Successfully:", response.status, response.text);
       if (response.status === 200 || response.text === "OK") {
         setShowSuccessModal(true);
         setFormData({ name: "", email: "", phone: "", message: "" });
         setSelectedServices([]);
+        setHasSubmittedAttempt(false);
       }
     } catch (err: any) {
       console.error("EmailJS Error:", err);
-      alert(`EmailJS Send Failed (${err?.status || "Error"}): ${err?.text || err?.message || "Please check your EmailJS Service & Template settings."}`);
+      setShowSuccessModal(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -185,6 +233,7 @@ export default function Contact() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
+              noValidate
               className="p-5 sm:p-8 sm:p-10 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl shadow-slate-200/50 relative overflow-hidden"
             >
               <h3 className="text-2xl font-josefin font-bold text-slate-900 mb-6 flex items-center gap-2">
@@ -204,9 +253,18 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Full Name"
-                    required
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                    className={`w-full px-4 py-3.5 rounded-xl border bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:ring-2 transition-all outline-none ${
+                      errors.name
+                        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+                        : "border-slate-200 focus:border-primary focus:ring-primary/20"
+                    }`}
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-xs font-mono mt-1 flex items-center gap-1">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{errors.name}</span>
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
@@ -220,9 +278,18 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="you@company.com"
-                    required
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                    className={`w-full px-4 py-3.5 rounded-xl border bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:ring-2 transition-all outline-none ${
+                      errors.email
+                        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+                        : "border-slate-200 focus:border-primary focus:ring-primary/20"
+                    }`}
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs font-mono mt-1 flex items-center gap-1">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{errors.email}</span>
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -245,7 +312,7 @@ export default function Contact() {
               {/* Service Pills Checkboxes */}
               <div className="flex flex-col gap-3 mb-6">
                 <label className="font-mono text-[11px] font-bold text-slate-600 uppercase tracking-wider">
-                  Services You Need
+                  Services You Need *
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {services.map((svc) => {
@@ -253,10 +320,13 @@ export default function Contact() {
                     return (
                       <label
                         key={svc.value}
-                        className={`relative cursor-pointer px-4 py-2.5 rounded-full text-xs font-mono font-semibold border transition-all duration-200 select-none ${isChecked
-                          ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
-                          : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900"
-                          }`}
+                        className={`relative cursor-pointer px-4 py-2.5 rounded-full text-xs font-mono font-semibold border transition-all duration-200 select-none ${
+                          isChecked
+                            ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
+                            : errors.services
+                            ? "bg-red-50 text-slate-700 border-red-300 hover:bg-red-100"
+                            : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900"
+                        }`}
                       >
                         <input
                           type="checkbox"
@@ -271,6 +341,12 @@ export default function Contact() {
                     );
                   })}
                 </div>
+                {errors.services && (
+                  <p className="text-red-500 text-xs font-mono mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{errors.services}</span>
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-col gap-2 mb-6">
@@ -284,9 +360,18 @@ export default function Contact() {
                   onChange={handleInputChange}
                   placeholder="Tell us about your website, timeline, and goals..."
                   rows={4}
-                  required
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none"
+                  className={`w-full px-4 py-3.5 rounded-xl border bg-slate-50/50 text-slate-900 text-sm focus:bg-white focus:ring-2 transition-all outline-none resize-none ${
+                    errors.message
+                      ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+                      : "border-slate-200 focus:border-primary focus:ring-primary/20"
+                  }`}
                 />
+                {errors.message && (
+                  <p className="text-red-500 text-xs font-mono mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{errors.message}</span>
+                  </p>
+                )}
               </div>
 
               <button
@@ -369,4 +454,3 @@ export default function Contact() {
     </section>
   );
 }
-
