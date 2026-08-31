@@ -3,6 +3,7 @@
 import { useState, useRef, useMemo } from "react";
 import emailjs from "@emailjs/browser";
 import CountUp from "react-countup";
+import GlowButton from "components/layout/GlowButton";
 import {
   CheckCircle2,
   Loader2,
@@ -560,10 +561,10 @@ export default function ProposalClient() {
                     </div>
 
                     {/* Submit Button */}
-                    <button
+                    <GlowButton
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl bg-primary text-white font-josefin font-bold text-base uppercase tracking-wider btn-slide-primary shadow-lg shadow-primary/25 hover:shadow-xl transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
+                      fullWidth
                     >
                       {isSubmitting ? (
                         <>
@@ -576,7 +577,7 @@ export default function ProposalClient() {
                           <ArrowRight className="w-5 h-5" />
                         </>
                       )}
-                    </button>
+                    </GlowButton>
                     <p className="text-center text-[11px] text-slate-500 font-mono pt-1">
                       No obligation. We reply with a written proposal within 1 business day.
                     </p>
@@ -991,12 +992,9 @@ export default function ProposalClient() {
               There's no cost to finding out what a real plan for your project looks like.
             </p>
           </div>
-          <button
-            onClick={focusForm}
-            className="px-8 py-4 rounded-xl bg-primary text-white font-josefin font-bold text-sm uppercase tracking-wider hover:bg-primary/90 shadow-lg shadow-primary/30 transition-all cursor-pointer shrink-0 relative z-10"
-          >
+          <GlowButton onClick={focusForm} className="shrink-0">
             Fill out the form above
-          </button>
+          </GlowButton>
         </div>
 
       </div>

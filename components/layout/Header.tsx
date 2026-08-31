@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import GlowButton from "./GlowButton";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
@@ -352,12 +353,9 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Link
-              href="/get-a-proposal"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider btn-slide-primary shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5"
-            >
+            <GlowButton href="/get-a-proposal">
               Get a Proposal
-            </Link>
+            </GlowButton>
           </div>
 
           {/* Mobile Menu Toggle Button */}

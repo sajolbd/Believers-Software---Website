@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Phone, Clock, MapPin, ArrowRight, CheckCircle2, MessageSquare, Loader2, X, Sparkles, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import GlowButton from "components/layout/GlowButton";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -374,10 +375,10 @@ export default function Contact() {
                 )}
               </div>
 
-              <button
+              <GlowButton
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold font-josefin text-base btn-slide-primary shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-70"
+                fullWidth
               >
                 {isSubmitting ? (
                   <>
@@ -390,7 +391,7 @@ export default function Contact() {
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
-              </button>
+              </GlowButton>
               <p className="text-center text-xs text-slate-400 font-mono mt-3">
                 We reply to every inquiry within one business day.
               </p>

@@ -16,6 +16,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import GlowButton from "components/layout/GlowButton";
 
 export default function ContactClient() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -421,10 +422,10 @@ export default function ContactClient() {
                 )}
               </div>
 
-              <button
+              <GlowButton
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold font-josefin text-base btn-slide-primary shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 cursor-pointer disabled:opacity-70"
+                fullWidth
               >
                 {isSubmitting ? (
                   <>
@@ -437,7 +438,7 @@ export default function ContactClient() {
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
-              </button>
+              </GlowButton>
               <p className="text-center text-xs text-slate-400 font-mono mt-3">
                 We respect your privacy. No spam guaranteed.
               </p>
