@@ -188,24 +188,34 @@ export default function Header() {
           : "bg-white/90 backdrop-blur-lg border-b border-slate-100/60 py-3 sm:py-5"
           }`}
       >
-        {/* Mobile Navbar Top Bar (Phone + Get a Proposal) */}
-        <div className="md:hidden flex items-center justify-between pt-1 pb-2.5 mb-2.5 border-b border-slate-100/80 px-4">
-          <a
-            href="tel:+8801716878931"
-            className="flex items-center gap-1.5 font-bold text-xs text-slate-800 hover:text-primary transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5 text-primary" />
-            <span>+8801716878931</span>
-          </a>
+        {/* Mobile Navbar Top Bar (Phone + Get a Proposal) - Hides on Scroll */}
+        <AnimatePresence>
+          {!scrolled && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="md:hidden overflow-hidden flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-100/80 px-4"
+            >
+              <a
+                href="tel:+8801716878931"
+                className="flex items-center gap-1.5 font-bold text-xs text-slate-800 hover:text-primary transition-colors pt-1"
+              >
+                <Phone className="w-3.5 h-3.5 text-primary" />
+                <span>+8801716878931</span>
+              </a>
 
-          <Link
-            href="/get-a-proposal"
-            className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-primary text-white text-[10px] font-josefin font-bold uppercase tracking-wider shadow-sm shadow-primary/20 hover:bg-[#ff5d47] transition-all"
-          >
-            <span>Get a Proposal</span>
-            <ArrowRight className="w-3 h-3" />
-          </Link>
-        </div>
+              <Link
+                href="/get-a-proposal"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary text-white text-xs font-josefin font-extrabold uppercase tracking-wider shadow-md shadow-primary/25 hover:bg-[#ff5d47] transition-all mt-1"
+              >
+                <span>Get a Proposal</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="max-w-[1180px] mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Brand Logo */}
