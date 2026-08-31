@@ -9,6 +9,7 @@ import {
   X,
   ArrowRight,
   Mail,
+  Phone,
   Clock,
   Shield,
   ChevronDown,
@@ -183,11 +184,30 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/75 backdrop-blur-xl border-b border-slate-200/60 shadow-sm py-3.5"
-          : "bg-white/60 backdrop-blur-lg border-b border-slate-100/40 py-4 sm:py-5"
+          ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm py-2.5 sm:py-3.5"
+          : "bg-white/90 backdrop-blur-lg border-b border-slate-100/60 py-3 sm:py-5"
           }`}
       >
-        <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
+        {/* Mobile Navbar Top Bar (Phone + Get a Proposal) */}
+        <div className="md:hidden flex items-center justify-between pt-1 pb-2.5 mb-2.5 border-b border-slate-100/80 px-4">
+          <a
+            href="tel:+8801716878931"
+            className="flex items-center gap-1.5 font-bold text-xs text-slate-800 hover:text-primary transition-colors"
+          >
+            <Phone className="w-3.5 h-3.5 text-primary" />
+            <span>+8801716878931</span>
+          </a>
+
+          <Link
+            href="/get-a-proposal"
+            className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-primary text-white text-[10px] font-josefin font-bold uppercase tracking-wider shadow-sm shadow-primary/20 hover:bg-[#ff5d47] transition-all"
+          >
+            <span>Get a Proposal</span>
+            <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+
+        <div className="max-w-[1180px] mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <Image
@@ -195,7 +215,7 @@ export default function Header() {
               alt="Believers Software"
               width={200}
               height={60}
-              className="h-8 sm:h-14 w-auto object-contain"
+              className="h-10 sm:h-14 w-auto object-contain"
               priority
             />
           </Link>
@@ -396,9 +416,9 @@ export default function Header() {
                   <Image
                     src="/images/logo.png"
                     alt="Believers Software"
-                    width={160}
-                    height={52}
-                    className="h-7 sm:h-8 w-auto object-contain"
+                    width={180}
+                    height={56}
+                    className="h-9 sm:h-10 w-auto object-contain"
                   />
                 </Link>
                 <button
