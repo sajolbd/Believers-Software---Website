@@ -117,7 +117,7 @@ export default function RootLayout({
           <ClientLayout>
             <div className="flex flex-col min-h-screen">
               <Header />
-              <main className="flex-grow pt-20 sm:pt-24">{children}</main>
+              <main className="flex-grow pt-32 sm:pt-28 md:pt-24">{children}</main>
               <Footer />
               <FloatingCTA />
             </div>

@@ -172,6 +172,7 @@ export default function Header() {
         icon: <Search className="w-4 h-4 text-indigo-500" />,
         title: "Core SEO",
         items: [
+          { name: "SEO Services", href: "/services/seo" },
           { name: "SEO Audit", href: "/services/seo#audit" },
           { name: "Technical SEO", href: "/services/seo#technical" },
           { name: "On-Page SEO", href: "/services/seo#on-page" },
