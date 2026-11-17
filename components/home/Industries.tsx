@@ -10,8 +10,8 @@ import {
   Building2,
   Compass,
   CheckCircle2,
-  Sparkles,
 } from "lucide-react";
+import Container from "components/shared/Container";
 
 export default function Industries() {
   const industries = [
@@ -94,14 +94,14 @@ export default function Industries() {
       {/* Subtle Background Ambient Glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-indigo-500/5 to-teal-500/5 blur-[140px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+      <Container className="relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
             <span className="w-5 h-[2px] bg-primary" />
             Who We Work With
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight">
             Industries we design and develop for.
           </h2>
           <p className="text-slate-600 leading-relaxed mt-4 text-base">
@@ -112,11 +112,11 @@ export default function Industries() {
         </div>
 
         {/* 4-Column Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {industries.map((ind) => (
             <div
               key={ind.num}
-              className={`group p-6 sm:p-7 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-slate-200/60 ${ind.accentBorder} hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden`}
+              className={`group p-5 sm:p-7 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-slate-200/60 ${ind.accentBorder} hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden`}
             >
               {/* Background Watermark Number */}
               <span className="absolute -bottom-3 -right-2 font-mono font-bold text-5xl text-slate-100 group-hover:text-primary/10 transition-colors duration-300 select-none pointer-events-none">
@@ -136,7 +136,7 @@ export default function Industries() {
                 </div>
 
                 {/* Industry Title */}
-                <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
+                <h3 className="text-lg font-saira font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
                   {ind.title}
                 </h3>
 
@@ -154,7 +154,7 @@ export default function Industries() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

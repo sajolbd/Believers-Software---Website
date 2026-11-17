@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Container from "components/shared/Container";
 import {
   Code,
   Search,
@@ -208,8 +209,8 @@ export default function SingleServicePage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen bg-[#FCFDFD] py-12 md:py-20">
-      <div className="max-w-[1180px] mx-auto px-6">
+    <div className="min-h-screen bg-[#FCFDFD] py-10 sm:py-12 md:py-20">
+      <Container>
         {/* Back navigation link */}
         <Link
           href="/services"
@@ -225,7 +226,7 @@ export default function SingleServicePage({ params }: Props) {
               {service.num}
             </span>
           </div>
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-josefin font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-saira font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
             {service.title}
           </h1>
 
@@ -236,7 +237,7 @@ export default function SingleServicePage({ params }: Props) {
           ))}
 
           {/* Fits You If Callout Card */}
-          <div className="mt-6 p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm border-l-4 border-l-primary">
+          <div className="mt-6 p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm border-l-4 border-l-primary">
             <p className="text-sm font-semibold text-slate-800 leading-relaxed">
               This service fits you if:{" "}
               <span className="text-slate-600 font-normal">{service.fitsYouIf}</span>
@@ -245,10 +246,10 @@ export default function SingleServicePage({ params }: Props) {
         </div>
 
         {/* Content & Scope Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mt-10">
           {/* Left Column: Bullet Points & Info */}
           <div className="lg:col-span-7">
-            <h3 className="text-2xl font-josefin font-bold text-slate-900 mb-6">
+            <h3 className="text-xl sm:text-2xl font-saira font-bold text-slate-900 mb-6">
               What Is Included in This Service
             </h3>
             <ul className="flex flex-col gap-4 mb-10">
@@ -262,9 +263,9 @@ export default function SingleServicePage({ params }: Props) {
               ))}
             </ul>
 
-            <div className="p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800 text-center sm:text-left">
               <div>
-                <h4 className="text-xl font-josefin font-bold text-white mb-1">
+                <h4 className="text-xl font-saira font-bold text-white mb-1">
                   Ready to get started?
                 </h4>
                 <p className="text-xs font-mono text-slate-400">
@@ -282,8 +283,8 @@ export default function SingleServicePage({ params }: Props) {
 
           {/* Right Column: Scope Table */}
           <div className="lg:col-span-5">
-            <div className="p-7 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800">
-              <div className="flex items-center justify-between pb-5 border-b border-slate-800 mb-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-5 border-b border-slate-800 mb-6">
                 <h5 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-widest">
                   {service.scopeTitle}
                 </h5>
@@ -292,11 +293,11 @@ export default function SingleServicePage({ params }: Props) {
                 </span>
               </div>
 
-              <div className="flex flex-col gap-4 text-sm font-mono">
+              <div className="flex flex-col gap-4 text-xs sm:text-sm font-mono">
                 {service.scopeItems.map((item, idx) => (
-                  <div key={idx} className="flex justify-between items-center py-2.5 border-b border-slate-800/80 last:border-none">
+                  <div key={idx} className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80 last:border-none">
                     <span className="text-slate-400">{item.label}</span>
-                    <span className={item.highlight ? "text-primary font-bold" : "text-white font-semibold"}>
+                    <span className={`text-right ${item.highlight ? "text-primary font-bold" : "text-white font-semibold"}`}>
                       {item.value}
                     </span>
                   </div>
@@ -305,8 +306,8 @@ export default function SingleServicePage({ params }: Props) {
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </Container>
+    </div>
   );
 }
 

@@ -34,7 +34,7 @@ export default function FloatingCTA() {
     <button
       onClick={scrollToTop}
       aria-label="Jump To Top"
-      className={`fixed right-0 top-1/2 -translate-y-1/2 z-[999] bg-primary text-white text-xs font-semibold px-2 sm:px-2.5 py-3.5 sm:py-4 rounded-l-2xl shadow-xl shadow-primary/30 border border-r-0 border-white/20 transition-all duration-300 hover:px-3 active:scale-95 hover:bg-primary/95 flex flex-col items-center gap-1.5 sm:gap-2 group cursor-pointer ${
+      className={`fixed right-0 top-1/2 -translate-y-1/2 z-[999] bg-primary text-white text-xs font-semibold px-1.5 sm:px-2.5 py-2.5 sm:py-4 rounded-l-2xl shadow-xl shadow-primary/30 border border-r-0 border-white/20 transition-all duration-300 hover:px-3 active:scale-95 hover:bg-primary/95 flex flex-col items-center gap-1 sm:gap-2 group cursor-pointer ${
         isVisible
           ? "opacity-100 translate-x-0"
           : "opacity-0 translate-x-12 pointer-events-none"

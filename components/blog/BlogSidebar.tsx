@@ -69,7 +69,7 @@ export default function BlogSidebar({ onSearchChange, searchQuery = "" }: BlogSi
         <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none" />
         <div className="flex items-center gap-2 mb-3">
           <Sparkles className="w-4 h-4 text-primary" />
-          <h3 className="text-sm font-josefin font-bold text-slate-900 uppercase tracking-wider">
+          <h3 className="text-sm font-saira font-bold text-slate-900 uppercase tracking-wider">
             About Believers Software
           </h3>
         </div>
@@ -90,7 +90,7 @@ export default function BlogSidebar({ onSearchChange, searchQuery = "" }: BlogSi
         <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 mb-4 pb-2 border-b border-slate-100">
           Explore Our Services
         </h3>
-        <ul className="space-y-2.5 text-xs font-josefin font-bold text-slate-700">
+        <ul className="space-y-2.5 text-xs font-saira font-bold text-slate-700">
           <li>
             <Link
               href="/services/web-development"
@@ -145,7 +145,7 @@ export default function BlogSidebar({ onSearchChange, searchQuery = "" }: BlogSi
         <span className="inline-block font-mono text-[9px] font-extrabold tracking-widest text-primary bg-primary/20 px-2 py-0.5 rounded mb-2 uppercase">
           FREE ANALYSIS
         </span>
-        <h3 className="text-base font-josefin font-bold text-white mb-2">
+        <h3 className="text-base font-saira font-bold text-white mb-2">
           Want More Traffic &amp; Better Conversions?
         </h3>
         <p className="text-xs text-slate-300 mb-4 leading-relaxed">
@@ -163,7 +163,7 @@ export default function BlogSidebar({ onSearchChange, searchQuery = "" }: BlogSi
           />
           <button
             type="submit"
-            className="w-full py-2.5 px-4 rounded-xl bg-primary hover:bg-[#ff5d47] text-white text-xs font-bold font-josefin uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-1.5"
+            className="w-full py-2.5 px-4 rounded-xl bg-primary hover:bg-[#ff5d47] text-white text-xs font-bold font-saira uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-1.5"
           >
             <span>Get a Proposal</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -192,7 +192,7 @@ export default function BlogSidebar({ onSearchChange, searchQuery = "" }: BlogSi
                 />
               </div>
               <div>
-                <h4 className="text-xs font-josefin font-bold text-slate-800 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                <h4 className="text-xs font-saira font-bold text-slate-800 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
                   {post.title}
                 </h4>
                 <p className="text-[10px] text-slate-400 font-mono mt-1">
@@ -208,7 +208,7 @@ export default function BlogSidebar({ onSearchChange, searchQuery = "" }: BlogSi
       <div className="bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-transparent p-6 rounded-2xl border border-orange-200/60">
         <div className="flex items-center gap-2 mb-2">
           <Mail className="w-4 h-4 text-primary" />
-          <h3 className="text-sm font-josefin font-bold text-slate-900">
+          <h3 className="text-sm font-saira font-bold text-slate-900">
             Subscribe to Growth Insights
           </h3>
         </div>
@@ -233,7 +233,7 @@ export default function BlogSidebar({ onSearchChange, searchQuery = "" }: BlogSi
             />
             <button
               type="submit"
-              className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold font-josefin uppercase tracking-wider transition-all"
+              className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold font-saira uppercase tracking-wider transition-all"
             >
               Subscribe Free
             </button>

@@ -81,7 +81,7 @@ export const BLOG_POSTS: BlogPost[] = [
         </p>
       </div>
 
-      <h2 id="what-is-geo" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">What is Generative Engine Optimization (GEO)?</h2>
+      <h2 id="what-is-geo" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">What is Generative Engine Optimization (GEO)?</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Generative Engine Optimization (GEO) is the discipline of structuring, verifying, and distributing content so that Large Language Models (LLMs) and Answer Engines easily parse, cite, and reference your brand as an authoritative source when answering user prompts.
       </p>
@@ -95,7 +95,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>Authoritative Expert Insights:</strong> First-hand insights from credentialed experts.</li>
       </ul>
 
-      <h2 id="geo-vs-traditional-seo" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">GEO vs Traditional SEO: Key Differences</h2>
+      <h2 id="geo-vs-traditional-seo" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">GEO vs Traditional SEO: Key Differences</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Understanding the difference between traditional search ranking factors and AI citation engines is essential for adapting your marketing strategy:
       </p>
@@ -129,7 +129,7 @@ export const BLOG_POSTS: BlogPost[] = [
         </table>
       </div>
 
-      <h2 id="how-ai-engines-cite" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">How AI Engines Choose Content to Cite</h2>
+      <h2 id="how-ai-engines-cite" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">How AI Engines Choose Content to Cite</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Recent research into generative search behavior shows that LLMs run a retrieval-augmented generation (RAG) pipeline when responding to a prompt. They search real-time web indexes for high-density information modules.
       </p>
@@ -138,7 +138,7 @@ export const BLOG_POSTS: BlogPost[] = [
         "Content containing clear quantitative statistics, structured tables, and expert quotations experiences up to 40% higher citation frequency in AI Overview summaries."
       </blockquote>
 
-      <h2 id="actionable-geo-strategies" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">5 Actionable GEO Strategies for Higher Citation</h2>
+      <h2 id="actionable-geo-strategies" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">5 Actionable GEO Strategies for Higher Citation</h2>
       <ol class="list-decimal pl-6 space-y-4 text-slate-700 mb-8">
         <li><strong>Add Authoritative Quotes & Statistics:</strong> Back up every claim with verifiable numbers and statistics.</li>
         <li><strong>Include Structured Comparison Tables:</strong> AI models love parsing markdown and HTML tables.</li>
@@ -147,7 +147,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>Maintain Consistent Multi-Channel Citations:</strong> Ensure your brand details match across directories, Wikipedia, and press releases.</li>
       </ol>
 
-      <h2 id="measuring-geo-success" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">Measuring GEO Success & Performance</h2>
+      <h2 id="measuring-geo-success" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">Measuring GEO Success & Performance</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Track your brand's AI search visibility by monitoring referral traffic from AI platforms (chatgpt.com, perplexity.ai), auditing AI answer prompts for target keywords, and tracking direct brand mention sentiment.
       </p>
@@ -177,12 +177,12 @@ export const BLOG_POSTS: BlogPost[] = [
         One of the most frequent questions business leaders ask us at Believers Software is: <em>"Should we build our new website on Next.js or WordPress?"</em> Both options have evolved significantly, but they serve fundamentally different architectural needs.
       </p>
 
-      <h2 id="the-dilemma" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">The Next.js vs WordPress Dilemma</h2>
+      <h2 id="the-dilemma" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">The Next.js vs WordPress Dilemma</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         WordPress powers over 40% of the web due to its ease of content publishing and huge plugin ecosystem. Meanwhile, Next.js (built on React) has become the gold standard for high-performance enterprise applications, SaaS portals, and hyper-fast e-commerce platforms.
       </p>
 
-      <h2 id="when-to-choose-nextjs" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">When to Choose Next.js 15</h2>
+      <h2 id="when-to-choose-nextjs" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">When to Choose Next.js 15</h2>
       <p class="text-slate-700 leading-relaxed mb-4">Next.js is the ideal stack when:</p>
       <ul class="list-disc pl-6 space-y-2 text-slate-700 mb-6">
         <li>You need sub-second page load speeds and perfect 100/100 Core Web Vitals scores.</li>
@@ -191,7 +191,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>You want full custom UI/UX design freedom without theme limitations.</li>
       </ul>
 
-      <h2 id="when-to-choose-wordpress" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">When to Choose WordPress</h2>
+      <h2 id="when-to-choose-wordpress" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">When to Choose WordPress</h2>
       <p class="text-slate-700 leading-relaxed mb-4">WordPress remains the smart choice when:</p>
       <ul class="list-disc pl-6 space-y-2 text-slate-700 mb-6">
         <li>Your primary goal is marketing blog management and content publishing.</li>
@@ -199,7 +199,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>You want a fast time-to-market with proven plugins for SEO and forms.</li>
       </ul>
 
-      <h2 id="hybrid-approach" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">The Hybrid Headless Approach</h2>
+      <h2 id="hybrid-approach" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">The Hybrid Headless Approach</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         You don't always have to choose! With <strong>Headless WordPress</strong>, WordPress acts purely as a back-end content CMS while Next.js powers the high-speed frontend via GraphQL or REST API. At Believers Software, we help clients choose the exact stack that balances budget, speed, and long-term business goals.
       </p>
@@ -228,7 +228,7 @@ export const BLOG_POSTS: BlogPost[] = [
         Waking up to a red Google warning screen reading <em>"Deceptive site ahead"</em> or finding unknown redirects on your WordPress site is every website owner's nightmare.
       </p>
 
-      <h2 id="signs-of-infection" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">Signs Your WordPress Site Has Malware</h2>
+      <h2 id="signs-of-infection" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">Signs Your WordPress Site Has Malware</h2>
       <ul class="list-disc pl-6 space-y-2 text-slate-700 mb-6">
         <li>Redirects sending mobile users to malicious spam pages.</li>
         <li>Unidentified admin users created in your database.</li>
@@ -236,7 +236,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>Host account suspended due to high CPU usage or outgoing spam emails.</li>
       </ul>
 
-      <h2 id="step-by-step-cleanup" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">Step-by-Step Malware Removal Process</h2>
+      <h2 id="step-by-step-cleanup" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">Step-by-Step Malware Removal Process</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Our security engineering team at Believers Software follows a strict 4-stage malware remediation protocol:
       </p>
@@ -247,7 +247,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong>Google Search Console Review:</strong> Submit a clean review request to remove warning flags within 24 hours.</li>
       </ol>
 
-      <h2 id="hardening-steps" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">Essential Steps to Lock Down WordPress</h2>
+      <h2 id="hardening-steps" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">Essential Steps to Lock Down WordPress</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Once clean, prevent future attacks by enabling 2FA, enforcing strong passwords, restricting file execution in /wp-content/uploads/, and setting up real-time web application firewalls (WAF).
       </p>
@@ -276,12 +276,12 @@ export const BLOG_POSTS: BlogPost[] = [
         Building a successful SaaS product requires more than just modern UI design — it demands a resilient backend infrastructure that scales cost-effectively.
       </p>
 
-      <h2 id="multi-tenant-models" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">Multi-Tenant Database Models</h2>
+      <h2 id="multi-tenant-models" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">Multi-Tenant Database Models</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Choosing between shared database schemas with tenant IDs vs separate database instances depends on data compliance requirements and target user volume.
       </p>
 
-      <h2 id="api-performance" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">API Performance & Caching</h2>
+      <h2 id="api-performance" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">API Performance & Caching</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Implement Redis caching for frequent database queries and deploy API rate limiters to prevent resource exhaustion.
       </p>
@@ -310,7 +310,7 @@ export const BLOG_POSTS: BlogPost[] = [
         Cross-platform mobile app development enables businesses to deploy iOS and Android apps simultaneously with a single shared codebase.
       </p>
 
-      <h2 id="framework-overview" class="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mt-10 mb-4">Framework Overview</h2>
+      <h2 id="framework-overview" class="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mt-10 mb-4">Framework Overview</h2>
       <p class="text-slate-700 leading-relaxed mb-6">
         Both Flutter (backed by Google) and React Native (backed by Meta) offer native UI rendering, hot reload, and rich component libraries.
       </p>

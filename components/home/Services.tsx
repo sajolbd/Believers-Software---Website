@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Container from "components/shared/Container";
 import {
   Code,
   Search,
@@ -64,15 +65,15 @@ export default function Services({ showBottomCta = true }: ServicesProps) {
       <div className="hidden md:block absolute top-[-5%] right-[5%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 via-orange-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
       <div className="hidden md:block absolute bottom-[-5%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#3FC7B0]/10 via-indigo-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-[1180px] mx-auto px-6">
-        <div className="max-w-3xl mb-16">
+      <Container>
+        <div className="max-w-3xl mb-10 sm:mb-14 lg:mb-16">
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900 text-white shadow-md mb-6 border border-slate-800">
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-xs font-mono font-bold tracking-widest uppercase">
               What We Do
             </span>
           </div>
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-josefin font-bold text-slate-900 leading-[1.18] tracking-tight mb-6">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-saira font-bold text-slate-900 leading-[1.18] tracking-tight mb-6">
             Five services. <span className="text-primary">One accountable team.</span>
           </h2>
           <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
@@ -84,11 +85,11 @@ export default function Services({ showBottomCta = true }: ServicesProps) {
         </div>
 
         {/* Overview Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {overviewServices.map((svc) => (
             <div
               key={svc.num}
-              className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-2xl hover:shadow-slate-200/60 hover:border-primary/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-2xl hover:shadow-slate-200/60 hover:border-primary/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Accent glow bar */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -103,7 +104,7 @@ export default function Services({ showBottomCta = true }: ServicesProps) {
                   </div>
                 </div>
 
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-josefin font-bold text-slate-900 group-hover:text-primary transition-colors mb-4">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-saira font-bold text-slate-900 group-hover:text-primary transition-colors mb-4">
                   {svc.title}
                 </h3>
                 <p className="text-sm text-slate-500 leading-relaxed">
@@ -125,12 +126,12 @@ export default function Services({ showBottomCta = true }: ServicesProps) {
 
         {/* Bottom CTA Banner */}
         {showBottomCta && (
-          <div className="mt-16 p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
+          <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800 text-center sm:text-left">
             <div>
               <span className="font-mono text-xs text-primary font-bold tracking-widest uppercase block mb-1">
                 FULL TECHNICAL BREAKDOWN
               </span>
-              <h4 className="text-xl font-josefin font-bold text-white">
+              <h4 className="text-lg sm:text-xl font-saira font-bold text-white">
                 Explore our full service scope, visual widgets &amp; technical specs
               </h4>
             </div>
@@ -142,7 +143,7 @@ export default function Services({ showBottomCta = true }: ServicesProps) {
             </Link>
           </div>
         )}
-      </div>
+      </Container>
     </section>
   );
 }

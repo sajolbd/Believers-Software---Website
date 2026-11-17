@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 import { Mail, Phone, Clock, MapPin, ArrowRight, CheckCircle2, MessageSquare, Loader2, X, Sparkles, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GlowButton from "components/layout/GlowButton";
+import Container from "components/shared/Container";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -131,15 +132,15 @@ export default function Contact() {
       {/* Subtle Background Glows */}
       <div className="hidden md:block absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <Container className="relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Contact Details Column */}
-          <div className="md:col-span-5">
+          <div className="lg:col-span-5">
             <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
               <span className="w-5 h-[2px] bg-primary" />
               Let's Build Something
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight mb-6">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight mb-6">
               Tell Us About Your Project
             </h2>
             <p className="text-slate-600 leading-relaxed mb-8 text-base">
@@ -149,19 +150,19 @@ export default function Contact() {
               about your project and we'll reply with next steps.
             </p>
 
-            <div className="flex flex-col gap-5 mb-8">
+            <div className="flex flex-col gap-4 sm:gap-5 mb-8">
               {/* Email */}
-              <div className="flex gap-4 items-center p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                  <Mail className="w-6 h-6" />
+              <div className="flex gap-3 sm:gap-4 items-center p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="block font-mono text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">
                     Email Address
                   </span>
                   <a
                     href="mailto:hello@believerssoftware.com"
-                    className="font-josefin font-bold text-slate-900 text-base hover:text-primary transition-colors"
+                    className="font-saira font-bold text-slate-900 text-sm sm:text-base hover:text-primary transition-colors break-all xs:break-normal block"
                   >
                     hello@believerssoftware.com
                   </a>
@@ -169,18 +170,18 @@ export default function Contact() {
               </div>
 
               {/* Phone / WhatsApp */}
-              <div className="flex gap-4 items-center p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 text-emerald-600">
-                  <Phone className="w-6 h-6" />
+              <div className="flex gap-3 sm:gap-4 items-center p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 text-emerald-600">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="block font-mono text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">
                     Phone / WhatsApp
                   </span>
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <a
                       href="tel:+8801716878931"
-                      className="font-josefin font-bold text-slate-900 text-base hover:text-primary transition-colors"
+                      className="font-saira font-bold text-slate-900 text-sm sm:text-base hover:text-primary transition-colors"
                     >
                       +8801716878931
                     </a>
@@ -198,30 +199,30 @@ export default function Contact() {
               </div>
 
               {/* Office Address */}
-              <div className="flex gap-4 items-center p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 text-blue-600">
-                  <MapPin className="w-6 h-6" />
+              <div className="flex gap-3 sm:gap-4 items-center p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 text-blue-600">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="block font-mono text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">
                     Office Address
                   </span>
-                  <span className="font-josefin font-bold text-slate-900 text-sm sm:text-base leading-snug block">
+                  <span className="font-saira font-bold text-slate-900 text-sm sm:text-base leading-snug block">
                     House No 1787, Merul Badda, Dhaka 1212
                   </span>
                 </div>
               </div>
 
               {/* Response Time */}
-              <div className="flex gap-4 items-center p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 text-amber-600">
-                  <Clock className="w-6 h-6" />
+              <div className="flex gap-3 sm:gap-4 items-center p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/70 shadow-sm hover:border-primary/30 transition-colors">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 text-amber-600">
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="block font-mono text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">
                     Guaranteed Response
                   </span>
-                  <span className="font-josefin font-bold text-slate-900 text-base">
+                  <span className="font-saira font-bold text-slate-900 text-sm sm:text-base">
                     Within 1 business day
                   </span>
                 </div>
@@ -230,14 +231,14 @@ export default function Contact() {
           </div>
 
           {/* Form Column */}
-          <div className="md:col-span-7">
+          <div className="lg:col-span-7">
             <form
               ref={formRef}
               onSubmit={handleSubmit}
               noValidate
-              className="p-5 sm:p-8 sm:p-10 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl shadow-slate-200/50 relative overflow-hidden"
+              className="p-5 sm:p-8 lg:p-10 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl shadow-slate-200/50 relative overflow-hidden"
             >
-              <h3 className="text-2xl font-josefin font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <h3 className="text-2xl font-saira font-bold text-slate-900 mb-6 flex items-center gap-2">
                 Send Project Details
                 <Sparkles className="w-5 h-5 text-primary" />
               </h3>
@@ -398,7 +399,7 @@ export default function Contact() {
             </form>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Success Modal Popup */}
       <AnimatePresence>
@@ -423,7 +424,7 @@ export default function Contact() {
                 <CheckCircle2 className="w-10 h-10" />
               </div>
 
-              <h3 className="text-2xl font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-2xl font-saira font-bold text-slate-900 mb-2">
                 Inquiry Submitted!
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">

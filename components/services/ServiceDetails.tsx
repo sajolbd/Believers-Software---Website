@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Container from "components/shared/Container";
 import {
   Code,
   Search,
@@ -32,18 +33,18 @@ export default function ServiceDetails() {
   return (
     <div>
       {/* ================= STICKY QUICK NAVIGATION BAR ================= */}
-      <div className="sticky top-20 z-30 bg-white/90 backdrop-blur-md border-y border-slate-200/80 shadow-xs hidden md:block">
-        <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between py-3.5">
-          <span className="font-mono text-xs font-bold text-slate-400 uppercase tracking-widest">
+      <div className="sticky top-[74px] lg:top-[84px] z-30 bg-white/90 backdrop-blur-md border-y border-slate-200/80 shadow-xs hidden md:block">
+        <Container className="flex items-center justify-between gap-4 py-3.5">
+          <span className="hidden xl:inline font-mono text-xs font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
             Jump to Service:
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full xl:w-auto justify-between xl:justify-end">
             {serviceNav.map((nav) => (
               <a
                 key={nav.id}
                 href={`#${nav.id}`}
                 onClick={() => setActiveNav(nav.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-josefin font-bold transition-all duration-200 ${
+                className={`flex items-center gap-2 px-3 xl:px-4 py-2 rounded-xl text-xs font-saira font-bold transition-all duration-200 whitespace-nowrap shrink-0 ${
                   activeNav === nav.id
                     ? "bg-slate-900 text-white shadow-md"
                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
@@ -54,18 +55,18 @@ export default function ServiceDetails() {
               </a>
             ))}
           </div>
-        </div>
+        </Container>
       </div>
 
       {/* ================= SERVICE 01: DESIGN & DEV ================= */}
-      <section className="py-20 md:py-28 bg-slate-50/60 border-b border-slate-100 relative" id="web-dev">
-        <div className="max-w-[1180px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
+      <section className="py-14 sm:py-20 md:py-24 bg-slate-50/60 border-b border-slate-100 relative" id="web-dev">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary font-mono text-xs font-bold uppercase tracking-widest mb-4 border border-primary/20">
                 <Code className="w-3.5 h-3.5" /> Service 01
               </div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-josefin font-bold text-slate-900 leading-tight tracking-tight mb-5">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-saira font-bold text-slate-900 leading-tight tracking-tight mb-5">
                 Website Design &amp; Development
               </h3>
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
@@ -86,7 +87,7 @@ export default function ServiceDetails() {
             {/* UI Visual Preview Widget: Code Architecture Studio */}
             <div className="lg:col-span-5">
               <div className="rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden text-white font-mono text-xs">
-                <div className="px-5 py-3.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+                <div className="px-4 sm:px-5 py-3.5 bg-slate-950 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-rose-500/80" />
                     <span className="w-3 h-3 rounded-full bg-amber-500/80" />
@@ -95,7 +96,7 @@ export default function ServiceDetails() {
                   </div>
                   <span className="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">NEXT.JS + WP</span>
                 </div>
-                <div className="p-6 space-y-3 bg-slate-900/90 text-slate-300 leading-relaxed text-[12px]">
+                <div className="p-4 sm:p-6 space-y-3 bg-slate-900/90 text-slate-300 leading-relaxed text-[11px] sm:text-[12px] overflow-x-auto">
                   <div><span className="text-purple-400">export const</span> <span className="text-amber-300">StackEngine</span> = &#123;</div>
                   <div className="pl-4"><span className="text-blue-400">frontend:</span> <span className="text-emerald-400">"React 18 / Next.js App Router"</span>,</div>
                   <div className="pl-4"><span className="text-blue-400">cmsOption:</span> <span className="text-emerald-400">"Custom WP Theme or Headless"</span>,</div>
@@ -116,7 +117,7 @@ export default function ServiceDetails() {
           {/* Tech Split Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* JavaScript Column */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-[#3FC7B0]/40 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden">
+            <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-[#3FC7B0]/40 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden">
               <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#3FC7B0] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div>
                 <div className="flex items-center gap-4 mb-6">
@@ -124,7 +125,7 @@ export default function ServiceDetails() {
                     <Globe className="w-7 h-7 text-[#3FC7B0]" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-josefin font-bold text-slate-900">
+                    <h4 className="text-2xl font-saira font-bold text-slate-900">
                       Built with JavaScript
                     </h4>
                     <span className="font-mono text-xs text-[#3FC7B0] font-bold">React · Next.js · Node.js</span>
@@ -152,7 +153,7 @@ export default function ServiceDetails() {
             </div>
 
             {/* WordPress Column */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-primary/40 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden">
+            <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-primary/40 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden">
               <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div>
                 <div className="flex items-center gap-4 mb-6">
@@ -160,7 +161,7 @@ export default function ServiceDetails() {
                     <Layers className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-josefin font-bold text-slate-900">
+                    <h4 className="text-2xl font-saira font-bold text-slate-900">
                       Built with WordPress
                     </h4>
                     <span className="font-mono text-xs text-primary font-bold">Custom Themes · WooCommerce</span>
@@ -187,19 +188,19 @@ export default function ServiceDetails() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ================= SERVICE 02: SEO ================= */}
-      <section className="py-20 md:py-28 bg-white border-b border-slate-100 relative" id="seo">
-        <div className="max-w-[1180px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="py-14 sm:py-20 md:py-24 bg-white border-b border-slate-100 relative" id="seo">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Text side */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 text-indigo-600 font-mono text-xs font-bold uppercase tracking-widest mb-4 border border-indigo-500/20">
                 <Search className="w-3.5 h-3.5" /> Service 02
               </div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-josefin font-bold text-slate-900 leading-tight tracking-tight mb-6">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-saira font-bold text-slate-900 leading-tight tracking-tight mb-6">
                 SEO Services That Target Real Buyers
               </h3>
               <p className="text-slate-600 leading-relaxed mb-4 text-base sm:text-lg">
@@ -250,7 +251,7 @@ export default function ServiceDetails() {
                   </span>
                 </div>
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="font-josefin font-bold text-3xl text-white">#1 RANK</span>
+                  <span className="font-saira font-bold text-3xl text-white">#1 RANK</span>
                   <span className="text-xs font-mono text-indigo-300">Target Keywords</span>
                 </div>
                 {/* Simulated Rank Curve */}
@@ -264,8 +265,8 @@ export default function ServiceDetails() {
               </div>
 
               {/* Scope Table */}
-              <div className="p-7 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800 relative overflow-hidden">
-                <div className="flex items-center justify-between pb-5 border-b border-slate-800 mb-6">
+              <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-5 border-b border-slate-800 mb-6">
                   <div className="flex items-center gap-2.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
                     <h5 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-widest">
@@ -277,38 +278,38 @@ export default function ServiceDetails() {
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-4 text-sm font-mono">
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                <div className="flex flex-col gap-4 text-xs sm:text-sm font-mono">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">Technical audit</span>
-                    <span className="text-primary font-bold">Included</span>
+                    <span className="text-primary font-bold text-right">Included</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">Keyword research</span>
-                    <span className="text-white font-semibold">Intent-based</span>
+                    <span className="text-white font-semibold text-right">Intent-based</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">On-page SEO</span>
-                    <span className="text-white font-semibold">Full site</span>
+                    <span className="text-white font-semibold text-right">Full site</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">Local SEO</span>
-                    <span className="text-white font-semibold">Available</span>
+                    <span className="text-white font-semibold text-right">Available</span>
                   </div>
-                  <div className="flex justify-between items-center pt-2.5">
+                  <div className="flex justify-between items-center gap-3 pt-2.5">
                     <span className="text-slate-400">Reporting</span>
-                    <span className="text-[#3FC7B0] font-bold">Monthly</span>
+                    <span className="text-[#3FC7B0] font-bold text-right">Monthly</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ================= SERVICE 03: MARKETING ================= */}
-      <section className="py-20 md:py-28 bg-slate-50/60 border-b border-slate-100 relative" id="marketing">
-        <div className="max-w-[1180px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="py-14 sm:py-20 md:py-24 bg-slate-50/60 border-b border-slate-100 relative" id="marketing">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Scope side & UI Visual Widget (Left on desktop) */}
             <div className="lg:col-span-5 order-2 lg:order-1 space-y-6">
               {/* Campaign Performance Mockup Card */}
@@ -325,14 +326,14 @@ export default function ServiceDetails() {
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <span className="w-2 h-2 rounded-full bg-primary" />
-                      <span className="font-josefin font-bold text-xs text-slate-800">Weekly Video Reels</span>
+                      <span className="font-saira font-bold text-xs text-slate-800">Weekly Video Reels</span>
                     </div>
                     <span className="font-mono text-[10px] text-slate-400">Scheduled</span>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <span className="w-2 h-2 rounded-full bg-[#3FC7B0]" />
-                      <span className="font-josefin font-bold text-xs text-slate-800">Google Search Ads</span>
+                      <span className="font-saira font-bold text-xs text-slate-800">Google Search Ads</span>
                     </div>
                     <span className="font-mono text-[10px] text-[#3FC7B0] font-bold">Converting</span>
                   </div>
@@ -340,8 +341,8 @@ export default function ServiceDetails() {
               </div>
 
               {/* Scope Table */}
-              <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm relative overflow-hidden">
-                <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
+              <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm relative overflow-hidden">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-5 border-b border-slate-100 mb-6">
                   <div className="flex items-center gap-2.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
                     <h5 className="font-mono text-xs font-bold text-slate-800 uppercase tracking-widest">
@@ -353,30 +354,30 @@ export default function ServiceDetails() {
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-4 text-sm font-mono">
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                <div className="flex flex-col gap-4 text-xs sm:text-sm font-mono">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Social media posts</span>
-                    <span className="text-primary font-bold">Designed &amp; scheduled</span>
+                    <span className="text-primary font-bold text-right">Designed &amp; scheduled</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Video content</span>
-                    <span className="text-slate-800 font-semibold">Short-form, produced</span>
+                    <span className="text-slate-800 font-semibold text-right">Short-form, produced</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Paid search</span>
-                    <span className="text-slate-800 font-semibold">Google Ads</span>
+                    <span className="text-slate-800 font-semibold text-right">Google Ads</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Paid social</span>
-                    <span className="text-slate-800 font-semibold">Meta Ads</span>
+                    <span className="text-slate-800 font-semibold text-right">Meta Ads</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Email marketing</span>
-                    <span className="text-[#3FC7B0] font-bold">Automated</span>
+                    <span className="text-[#3FC7B0] font-bold text-right">Automated</span>
                   </div>
-                  <div className="flex justify-between items-center pt-2.5">
+                  <div className="flex justify-between items-center gap-3 pt-2.5">
                     <span className="text-slate-500">Tracking</span>
-                    <span className="text-primary font-bold">Full-funnel</span>
+                    <span className="text-primary font-bold text-right">Full-funnel</span>
                   </div>
                 </div>
               </div>
@@ -387,7 +388,7 @@ export default function ServiceDetails() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#3FC7B0]/10 text-[#3FC7B0] font-mono text-xs font-bold uppercase tracking-widest mb-4 border border-[#3FC7B0]/20">
                 <Megaphone className="w-3.5 h-3.5" /> Service 03
               </div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-josefin font-bold text-slate-900 leading-tight tracking-tight mb-6">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-saira font-bold text-slate-900 leading-tight tracking-tight mb-6">
                 Digital Marketing Services — Social Media &amp; Paid Advertising
               </h3>
               <p className="text-slate-600 leading-relaxed mb-4 text-base sm:text-lg">
@@ -425,19 +426,19 @@ export default function ServiceDetails() {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ================= SERVICE 04: SECURITY ================= */}
-      <section className="py-20 md:py-28 bg-white border-b border-slate-100 relative" id="security">
-        <div className="max-w-[1180px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="py-14 sm:py-20 md:py-24 bg-white border-b border-slate-100 relative" id="security">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Text side */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 text-rose-500 font-mono text-xs font-bold uppercase tracking-widest mb-4 border border-rose-500/20">
                 <ShieldAlert className="w-3.5 h-3.5" /> Service 04
               </div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-josefin font-bold text-slate-900 leading-tight tracking-tight mb-6">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-saira font-bold text-slate-900 leading-tight tracking-tight mb-6">
                 WordPress Security &amp; Malware Removal
               </h3>
               <p className="text-slate-600 leading-relaxed mb-4 text-base sm:text-lg">
@@ -477,8 +478,8 @@ export default function ServiceDetails() {
             {/* Scope side & UI Visual Widget */}
             <div className="lg:col-span-5 space-y-6">
               {/* Security Shield Scanner Visual Mockup */}
-              <div className="p-6 rounded-3xl bg-slate-900 border border-rose-500/30 text-white shadow-xl">
-                <div className="flex items-center justify-between mb-4">
+              <div className="p-5 sm:p-6 rounded-3xl bg-slate-900 border border-rose-500/30 text-white shadow-xl">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <span className="font-mono text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
                     <Lock className="w-4 h-4 text-rose-500" /> LIVE FIREWALL SCANNER
                   </span>
@@ -503,8 +504,8 @@ export default function ServiceDetails() {
               </div>
 
               {/* Scope Table */}
-              <div className="p-7 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800 relative overflow-hidden">
-                <div className="flex items-center justify-between pb-5 border-b border-slate-800 mb-6">
+              <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-5 border-b border-slate-800 mb-6">
                   <div className="flex items-center gap-2.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
                     <h5 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-widest">
@@ -516,43 +517,43 @@ export default function ServiceDetails() {
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-4 text-sm font-mono">
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                <div className="flex flex-col gap-4 text-xs sm:text-sm font-mono">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">Malware scan</span>
-                    <span className="text-primary font-bold">Full site</span>
+                    <span className="text-primary font-bold text-right">Full site</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">Cleanup</span>
-                    <span className="text-white font-semibold">Code-level removal</span>
+                    <span className="text-white font-semibold text-right">Code-level removal</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">Blacklist review</span>
-                    <span className="text-[#3FC7B0] font-bold">Post-clean request</span>
+                    <span className="text-[#3FC7B0] font-bold text-right">Post-clean request</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-slate-800/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-slate-800/80">
                     <span className="text-slate-400">Firewall</span>
-                    <span className="text-white font-semibold">Configured</span>
+                    <span className="text-white font-semibold text-right">Configured</span>
                   </div>
-                  <div className="flex justify-between items-center pt-2.5">
+                  <div className="flex justify-between items-center gap-3 pt-2.5">
                     <span className="text-slate-400">Backups</span>
-                    <span className="text-white font-semibold">Automated</span>
+                    <span className="text-white font-semibold text-right">Automated</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ================= SERVICE 05: MAINTENANCE ================= */}
-      <section className="py-20 md:py-28 bg-slate-50/60" id="maintenance">
-        <div className="max-w-[1180px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="py-14 sm:py-20 md:py-24 bg-slate-50/60" id="maintenance">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Scope side & UI Visual Widget (Left on desktop) */}
             <div className="lg:col-span-5 order-2 lg:order-1 space-y-6">
               {/* Uptime & Backup Health Widget */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-md">
-                <div className="flex items-center justify-between mb-4">
+              <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-md">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <span className="font-mono text-xs font-bold text-amber-600 uppercase tracking-wider flex items-center gap-1.5">
                     <Activity className="w-4 h-4" /> UPTIME & BACKUP HEALTH
                   </span>
@@ -575,8 +576,8 @@ export default function ServiceDetails() {
               </div>
 
               {/* Scope Table */}
-              <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm relative overflow-hidden">
-                <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
+              <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm relative overflow-hidden">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-5 border-b border-slate-100 mb-6">
                   <div className="flex items-center gap-2.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
                     <h5 className="font-mono text-xs font-bold text-slate-800 uppercase tracking-widest">
@@ -588,26 +589,26 @@ export default function ServiceDetails() {
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-4 text-sm font-mono">
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                <div className="flex flex-col gap-4 text-xs sm:text-sm font-mono">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Updates</span>
-                    <span className="text-primary font-bold">Monthly, scheduled</span>
+                    <span className="text-primary font-bold text-right">Monthly, scheduled</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Uptime</span>
-                    <span className="text-[#3FC7B0] font-bold">Monitored 24/7</span>
+                    <span className="text-[#3FC7B0] font-bold text-right">Monitored 24/7</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Backups</span>
-                    <span className="text-slate-800 font-semibold">Automated</span>
+                    <span className="text-slate-800 font-semibold text-right">Automated</span>
                   </div>
-                  <div className="flex justify-between items-center py-2.5 border-b border-dashed border-slate-200/80">
+                  <div className="flex justify-between items-center gap-3 py-2.5 border-b border-dashed border-slate-200/80">
                     <span className="text-slate-500">Minor fixes</span>
-                    <span className="text-slate-800 font-semibold">Included</span>
+                    <span className="text-slate-800 font-semibold text-right">Included</span>
                   </div>
-                  <div className="flex justify-between items-center pt-2.5">
+                  <div className="flex justify-between items-center gap-3 pt-2.5">
                     <span className="text-slate-500">Response time</span>
-                    <span className="text-primary font-bold">Priority support</span>
+                    <span className="text-primary font-bold text-right">Priority support</span>
                   </div>
                 </div>
               </div>
@@ -618,7 +619,7 @@ export default function ServiceDetails() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-600 font-mono text-xs font-bold uppercase tracking-widest mb-4 border border-amber-500/20">
                 <Wrench className="w-3.5 h-3.5" /> Service 05
               </div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-josefin font-bold text-slate-900 leading-tight tracking-tight mb-6">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-saira font-bold text-slate-900 leading-tight tracking-tight mb-6">
                 Website Maintenance
               </h3>
               <p className="text-slate-600 leading-relaxed mb-4 text-base sm:text-lg">
@@ -655,7 +656,7 @@ export default function ServiceDetails() {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </div>
   );

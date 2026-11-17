@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Search, Palette, Code2, Rocket, TrendingUp, CheckCircle2, Terminal } from "lucide-react";
+import Container from "components/shared/Container";
 
 export default function Process() {
   const stages = [
@@ -60,14 +60,14 @@ export default function Process() {
       {/* Background Subtle Glows */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[400px] bg-gradient-to-r from-primary/5 via-indigo-500/5 to-teal-500/5 blur-[150px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+      <Container className="relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-14 lg:mb-16">
           <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
             <span className="w-5 h-[2px] bg-primary" />
             How We Work
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight mb-4">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight mb-4">
             How Projects Move from Start to Finish
           </h2>
           <p className="text-slate-600 leading-relaxed text-base">
@@ -77,13 +77,13 @@ export default function Process() {
           </p>
         </div>
 
-        {/* Desktop Connected Stepper Chain (5 Columns) */}
+        {/* Desktop Connected Stepper Chain (5 Columns on xl+, 3 cols on lg, 2 cols on sm) */}
         <div className="relative">
           {/* Timeline Connector Line for Desktop */}
-          <div className="hidden lg:block absolute top-[45px] left-8 right-8 h-[2px] bg-gradient-to-r from-primary/30 via-teal-500/30 to-emerald-500/30 z-0" />
+          <div className="hidden xl:block absolute top-[45px] left-8 right-8 h-[2px] bg-gradient-to-r from-primary/30 via-teal-500/30 to-emerald-500/30 z-0" />
 
           {/* Stepper Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 xl:gap-6 relative z-10">
             {stages.map((item, idx) => (
               <div
                 key={idx}
@@ -109,7 +109,7 @@ export default function Process() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
+                  <h3 className="text-lg font-saira font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -128,7 +128,7 @@ export default function Process() {
         </div>
 
         {/* Process Guarantee Note */}
-        <div className="mt-12 p-4 rounded-2xl bg-slate-50 border border-slate-200/60 flex items-center justify-between gap-4 text-xs font-mono text-slate-600 max-w-4xl mx-auto flex-wrap">
+        <div className="mt-10 sm:mt-12 p-4 rounded-2xl bg-slate-50 border border-slate-200/60 flex items-center justify-between gap-4 text-xs font-mono text-slate-600 max-w-5xl mx-auto flex-wrap">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4 text-primary shrink-0" />
             <span>Structured Sprint Milestone Approvals</span>
@@ -138,7 +138,7 @@ export default function Process() {
             <span>• Zero Hidden Steps</span>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Plus, Minus, HelpCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Plus, Minus, HelpCircle, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Container from "components/shared/Container";
 
 export default function FAQ() {
   const faqs = [
@@ -58,20 +59,20 @@ export default function FAQ() {
       {/* Subtle Background Ambient Glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-indigo-500/5 to-teal-500/5 blur-[140px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+      <Container className="relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
             <span className="w-5 h-[2px] bg-primary" />
             Common Questions
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight">
             Frequently Asked Questions
           </h2>
         </div>
 
         {/* Accordion Cards Container */}
-        <div className="max-w-4xl mx-auto flex flex-col gap-4">
+        <div className="max-w-5xl mx-auto flex flex-col gap-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndexes.includes(index);
             return (
@@ -84,10 +85,10 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="flex justify-between items-center w-full text-left font-josefin font-bold text-slate-900 text-base sm:text-lg p-6 sm:p-7 hover:text-primary transition-colors focus:outline-none group cursor-pointer"
+                  className="flex justify-between items-center w-full text-left font-saira font-bold text-slate-900 text-sm xs:text-base sm:text-lg p-4 sm:p-6 md:p-7 hover:text-primary transition-colors focus:outline-none group cursor-pointer"
                 >
-                  <div className="flex items-center gap-3.5 pr-4">
-                    <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                  <div className="flex items-start sm:items-center gap-2.5 sm:gap-3.5 pr-2 sm:pr-4">
+                    <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-500 group-hover:bg-primary/10 group-hover:text-primary transition-colors shrink-0">
                       #0{index + 1}
                     </span>
                     <span className="leading-snug">{faq.q}</span>
@@ -110,8 +111,8 @@ export default function FAQ() {
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-0 border-t border-slate-100/60 mt-1">
-                        <p className="text-sm text-slate-600 leading-relaxed max-w-3xl pt-4">
+                      <div className="px-4 pb-5 sm:px-7 sm:pb-7 pt-0 border-t border-slate-100/60 mt-1">
+                        <p className="text-sm text-slate-600 leading-relaxed max-w-4xl pt-4">
                           {faq.a}
                         </p>
                       </div>
@@ -124,13 +125,13 @@ export default function FAQ() {
         </div>
 
         {/* Bottom Contact Help Banner */}
-        <div className="mt-12 max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
-          <div className="flex items-center gap-4">
+        <div className="mt-12 max-w-5xl mx-auto p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800 text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
               <HelpCircle className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-lg font-josefin font-bold text-white mb-1">
+              <h4 className="text-lg font-saira font-bold text-white mb-1">
                 Have a question not answered here?
               </h4>
               <p className="text-slate-400 text-xs sm:text-sm">
@@ -147,7 +148,7 @@ export default function FAQ() {
             <ArrowRight className="w-4 h-4 text-white" />
           </Link>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

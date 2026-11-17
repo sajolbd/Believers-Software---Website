@@ -19,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-josefin-sans), Arial, sans-serif;
+  font-family: var(--font-saira), Arial, sans-serif;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -42,7 +42,8 @@ body {
   scroll-behavior: smooth;
   scrollbar-color: theme("colors.primary") #f8fafc;
   scrollbar-width: thin;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   max-width: 100%;
   position: relative;
@@ -84,6 +85,7 @@ ol {
 
 button,
 input,
+select,
 textarea {
   font: inherit;
   outline: none;

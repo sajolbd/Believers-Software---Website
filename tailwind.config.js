@@ -10,25 +10,37 @@ module.exports = {
   ],
 
   theme: {
+    screens: {
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       /* ---------- CONTAINER ---------- */
       container: {
         center: true,
-        padding: "1rem",
+        padding: {
+          DEFAULT: "1rem",
+          sm: "1.5rem",
+          lg: "2rem",
+        },
         screens: {
           sm: "640px",
           md: "768px",
           lg: "1024px",
           xl: "1280px",
-          "2xl": "1640px",
+          "2xl": "1440px",
         },
       },
 
       /* ---------- FONT FAMILY ---------- */
       fontFamily: {
-        sans: ["var(--font-josefin-sans)", "sans-serif"],
-        josefin: ["var(--font-josefin-sans)", "sans-serif"],
-        mono: ["var(--font-josefin-sans)", "monospace"],
+        sans: ["var(--font-saira)", "sans-serif"],
+        saira: ["var(--font-saira)", "sans-serif"],
+        mono: ["var(--font-saira)", "monospace"],
       },
 
       /* ---------- MARQUEE ANIMATION ---------- */

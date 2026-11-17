@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Rocket, TrendingUp, ShieldCheck, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import { Rocket, TrendingUp, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
+import Container from "components/shared/Container";
 
 export default function Engagement() {
   const models = [
@@ -57,14 +58,14 @@ export default function Engagement() {
       {/* Subtle Ambient Background Glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-orange-500/5 to-teal-500/5 blur-[140px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+      <Container className="relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
             <span className="w-5 h-[2px] bg-primary" />
             How We Work Together
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight">
             Engagement models built around what you actually need.
           </h2>
           <p className="text-slate-600 leading-relaxed mt-4 text-base">
@@ -77,11 +78,11 @@ export default function Engagement() {
         </div>
 
         {/* 3-Column Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {models.map((model, idx) => (
             <div
               key={idx}
-              className={`p-8 sm:p-9 rounded-3xl border flex flex-col justify-between transition-all duration-300 relative overflow-hidden group bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 ${model.featured
+              className={`p-6 sm:p-8 lg:p-9 rounded-3xl border flex flex-col justify-between transition-all duration-300 relative overflow-hidden group bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 ${model.featured
                   ? "border-primary/50 shadow-md shadow-primary/5"
                   : "border-slate-200/80"
                 }`}
@@ -109,7 +110,7 @@ export default function Engagement() {
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="text-2xl font-josefin font-bold mb-3 text-slate-900 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-saira font-bold mb-3 text-slate-900 group-hover:text-primary transition-colors">
                   {model.title}
                 </h3>
                 <p className="text-sm leading-relaxed mb-8 text-slate-600">
@@ -143,7 +144,7 @@ export default function Engagement() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

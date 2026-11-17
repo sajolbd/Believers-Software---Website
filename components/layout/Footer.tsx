@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import Container from "components/shared/Container";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-50 border-t border-slate-100 pt-16 pb-8 text-slate-600 relative z-10">
-      <div className="max-w-[1180px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-slate-50 border-t border-slate-100 pt-14 sm:pt-16 pb-8 text-slate-600 relative z-10">
+      <Container>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-10 sm:mb-12">
           {/* Logo & Description */}
           <div className="flex flex-col gap-4">
             {/* Brand Logo */}
@@ -21,7 +22,7 @@ export default function Footer() {
                 priority
               />
             </Link>
-            <p className="text-sm leading-relaxed text-slate-500 max-w-[280px]">
+            <p className="text-sm leading-relaxed text-slate-500 max-w-xs">
               A full-service digital agency offering JavaScript &amp; WordPress development, website maintenance, SEO, digital &amp; social media marketing, and WordPress security under one roof.
             </p>
           </div>
@@ -140,7 +141,7 @@ export default function Footer() {
             Web Design &amp; Development · Maintenance · SEO · Social Media &amp; Digital Marketing · Security
           </span>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

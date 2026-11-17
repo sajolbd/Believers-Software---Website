@@ -1,6 +1,7 @@
 "use client";
 
 import { Layers, ShieldCheck, FileKey, BarChart3 } from "lucide-react";
+import Container from "components/shared/Container";
 
 export default function Differentiation() {
   const items = [
@@ -36,9 +37,9 @@ export default function Differentiation() {
       <div className="hidden md:block absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 rounded-full bg-primary/5 blur-3xl pointer-events-none -z-10" />
       <div className="hidden md:block absolute top-1/2 right-0 -translate-y-1/2 w-72 h-72 rounded-full bg-[#3FC7B0]/5 blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-[1180px] mx-auto px-6">
+      <Container>
         {/* Header Tag */}
-        <div className="flex items-center justify-center lg:justify-start mb-12">
+        <div className="flex items-center justify-center lg:justify-start mb-8 md:mb-12">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <h5 className="font-mono text-xs font-bold text-slate-600 uppercase tracking-widest">
@@ -53,7 +54,7 @@ export default function Differentiation() {
           <div className="hidden lg:block absolute top-5 left-[12.5%] right-[12.5%] h-[2px] border-t-2 border-dashed border-slate-300 z-0 pointer-events-none" />
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
             {items.map((item, index) => (
               <div
                 key={index}
@@ -93,7 +94,7 @@ export default function Differentiation() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

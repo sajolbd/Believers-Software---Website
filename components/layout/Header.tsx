@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import GlowButton from "./GlowButton";
+import Container from "components/shared/Container";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
@@ -254,8 +255,8 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm py-2.5 sm:py-3.5"
-          : "bg-white/90 backdrop-blur-lg border-b border-slate-100/60 py-3 sm:py-5"
+          ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm py-2.5 md:py-3.5"
+          : "bg-white/90 backdrop-blur-lg border-b border-slate-100/60 py-3 md:py-5"
           }`}
       >
         {/* Mobile Top Bar */}
@@ -267,43 +268,43 @@ export default function Header() {
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className="overflow-hidden flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-100/80 px-4"
+                className="overflow-hidden flex items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-slate-100/80 px-3 xs:px-4"
               >
                 <a
                   href="tel:+8801716878931"
-                  className="flex items-center gap-1.5 font-bold text-xs text-slate-800 hover:text-primary transition-colors pt-1"
+                  className="flex items-center gap-1.5 font-bold text-xs text-slate-800 hover:text-primary transition-colors pt-1 whitespace-nowrap"
                 >
-                  <Phone className="w-3.5 h-3.5 text-primary" />
+                  <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
                   <span>+8801716878931</span>
                 </a>
 
                 <Link
                   href="/get-a-proposal"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary text-white text-xs font-josefin font-extrabold uppercase tracking-wider shadow-md shadow-primary/25 hover:bg-[#ff5d47] transition-all mt-1"
+                  className="inline-flex items-center gap-1.5 px-3 xs:px-4 py-1.5 xs:py-2 rounded-full bg-primary text-white text-[11px] xs:text-xs font-saira font-extrabold uppercase tracking-wider shadow-md shadow-primary/25 hover:bg-[#ff5d47] transition-all mt-1 whitespace-nowrap"
                 >
                   <span>Get a Proposal</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </Link>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <Container className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
             <Image
               src="/images/logo.png"
               alt="Believers Software"
               width={200}
               height={60}
-              className="h-10 sm:h-12 w-auto object-contain"
+              className="h-10 md:h-11 lg:h-12 w-auto object-contain"
               priority
             />
           </Link>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-7 font-josefin font-bold text-sm text-slate-700">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 font-saira font-bold text-[13px] xl:text-sm text-slate-700 whitespace-nowrap">
             {navItems.map((item) => (
               <div
                 key={item.name}
@@ -353,7 +354,7 @@ export default function Header() {
                               {sub.icon}
                             </div>
                             <div>
-                              <span className="font-josefin font-bold text-slate-900 group-hover/sub:text-primary text-sm block">
+                              <span className="font-saira font-bold text-slate-900 group-hover/sub:text-primary text-sm block">
                                 {sub.name}
                               </span>
                               <span className="text-xs text-slate-500 font-normal">{sub.desc}</span>
@@ -384,7 +385,7 @@ export default function Header() {
                               {sub.icon}
                             </div>
                             <div>
-                              <span className="font-josefin font-bold text-slate-900 group-hover/sub:text-primary text-sm block">
+                              <span className="font-saira font-bold text-slate-900 group-hover/sub:text-primary text-sm block">
                                 {sub.name}
                               </span>
                               <span className="text-xs text-slate-500 font-normal">{sub.desc}</span>
@@ -399,20 +400,21 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <GlowButton href="/get-a-proposal">Get a Proposal</GlowButton>
-          </div>
+          {/* Desktop & Tablet CTA + Mobile/Tablet Menu Button */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="hidden md:block">
+              <GlowButton href="/get-a-proposal">Get a Proposal</GlowButton>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-50 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-50 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </Container>
 
         {/* FULL PAGE WIDTH SCROLLABLE MEGA MENU DROPDOWN WITH ORANGEY BRAND GRADIENT BACKGROUND */}
         <AnimatePresence>
@@ -424,12 +426,12 @@ export default function Header() {
               transition={{ duration: 0.18, ease: "easeOut" }}
               onMouseEnter={() => handleMouseEnter("Services")}
               onMouseLeave={handleMouseLeave}
-              className="hidden md:block absolute top-full left-0 right-0 w-full bg-gradient-to-b from-[#FFF6F4] via-[#FFFBF9] to-[#FFF1EE] border-t-2 border-primary border-b border-orange-200/80 shadow-2xl shadow-slate-900/20 py-6 px-4 sm:px-8 z-50 pointer-events-auto text-slate-800 max-h-[calc(100vh-90px)] overflow-y-auto"
+              className="hidden lg:block absolute top-full left-0 right-0 w-full bg-gradient-to-b from-[#FFF6F4] via-[#FFFBF9] to-[#FFF1EE] border-t-2 border-primary border-b border-orange-200/80 shadow-2xl shadow-slate-900/20 py-6 z-50 pointer-events-auto text-slate-800 max-h-[calc(100vh-90px)] overflow-y-auto"
             >
-              <div className="max-w-[1280px] mx-auto grid grid-cols-12 gap-7">
+              <Container className="grid grid-cols-12 gap-5 xl:gap-7">
 
                 {/* LEFT FEATURED PROPOSAL FORM CARD (Thrive Agency Style in Brand Colors) */}
-                <div className="col-span-3 rounded-2xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white p-5 flex flex-col justify-between border border-slate-800 relative overflow-hidden shadow-xl">
+                <div className="col-span-4 xl:col-span-3 rounded-2xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white p-5 flex flex-col justify-between border border-slate-800 relative overflow-hidden shadow-xl">
                   {/* Ambient Glow */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/25 rounded-full blur-2xl pointer-events-none" />
                   <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#3FC7B0]/15 rounded-full blur-2xl pointer-events-none" />
@@ -440,7 +442,7 @@ export default function Header() {
                       <span>Free Audit</span>
                     </span>
 
-                    <h3 className="font-josefin font-bold text-xl leading-tight text-white mb-2">
+                    <h3 className="font-saira font-bold text-xl leading-tight text-white mb-2">
                       Experience Real Results
                     </h3>
 
@@ -463,7 +465,7 @@ export default function Header() {
                       <button
                         type="submit"
                         disabled={formSubmitted}
-                        className="w-full py-3 px-4 rounded-xl bg-primary hover:bg-[#ff5d47] active:scale-[0.98] text-white text-xs font-josefin font-extrabold uppercase tracking-wider shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                        className="w-full py-3 px-4 rounded-xl bg-primary hover:bg-[#ff5d47] active:scale-[0.98] text-white text-xs font-saira font-extrabold uppercase tracking-wider shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2 group cursor-pointer"
                       >
                         {formSubmitted ? (
                           <span className="flex items-center gap-1.5">
@@ -492,13 +494,13 @@ export default function Header() {
                 </div>
 
                 {/* RIGHT SERVICE COLUMNS (100% Unchanged HTML Items) */}
-                <div className="col-span-9 grid grid-cols-4 gap-6">
+                <div className="col-span-8 xl:col-span-9 grid grid-cols-2 xl:grid-cols-4 gap-5 xl:gap-6">
 
                   {/* Col 1: Website & Software Development */}
                   <div className="space-y-5">
                     {/* Website Design & Development */}
                     <div>
-                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-josefin font-bold text-xs uppercase tracking-wider text-slate-900">
+                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-saira font-bold text-xs uppercase tracking-wider text-slate-900">
                         {servicesMegaMenu.col1.webDev.icon}
                         <span>{servicesMegaMenu.col1.webDev.category}</span>
                       </div>
@@ -519,7 +521,7 @@ export default function Header() {
 
                     {/* Software Development */}
                     <div>
-                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-josefin font-bold text-xs uppercase tracking-wider text-slate-900">
+                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-saira font-bold text-xs uppercase tracking-wider text-slate-900">
                         {servicesMegaMenu.col1.softwareDev.icon}
                         <span>{servicesMegaMenu.col1.softwareDev.category}</span>
                       </div>
@@ -542,7 +544,7 @@ export default function Header() {
                   {/* Col 2: Mobile Apps & Security */}
                   <div className="space-y-5">
                     <div>
-                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-josefin font-bold text-xs uppercase tracking-wider text-slate-900">
+                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-saira font-bold text-xs uppercase tracking-wider text-slate-900">
                         {servicesMegaMenu.col2.mobileApps.icon}
                         <span>{servicesMegaMenu.col2.mobileApps.category}</span>
                       </div>
@@ -592,7 +594,7 @@ export default function Header() {
 
                     {/* WordPress Security */}
                     <div>
-                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-josefin font-bold text-xs uppercase tracking-wider text-slate-900">
+                      <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-saira font-bold text-xs uppercase tracking-wider text-slate-900">
                         {servicesMegaMenu.col2.security.icon}
                         <span>{servicesMegaMenu.col2.security.category}</span>
                       </div>
@@ -614,7 +616,7 @@ export default function Header() {
 
                   {/* Col 3: Digital Marketing */}
                   <div>
-                    <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-josefin font-bold text-xs uppercase tracking-wider text-slate-900">
+                    <div className="flex items-center gap-2 pb-2 mb-2.5 border-b border-orange-200/60 font-saira font-bold text-xs uppercase tracking-wider text-slate-900">
                       {servicesMegaMenu.col3.marketing.icon}
                       <span>{servicesMegaMenu.col3.marketing.category}</span>
                     </div>
@@ -666,7 +668,7 @@ export default function Header() {
                   <div className="space-y-4">
                     {/* Core SEO */}
                     <div>
-                      <div className="flex items-center gap-2 pb-2 mb-2 border-b border-orange-200/60 font-josefin font-bold text-xs uppercase tracking-wider text-slate-900">
+                      <div className="flex items-center gap-2 pb-2 mb-2 border-b border-orange-200/60 font-saira font-bold text-xs uppercase tracking-wider text-slate-900">
                         {servicesMegaMenu.col4.seo.icon}
                         <span>{servicesMegaMenu.col4.seo.category}</span>
                       </div>
@@ -693,7 +695,7 @@ export default function Header() {
                       <span className="inline-block font-mono text-[9px] font-extrabold tracking-widest text-primary bg-primary/20 px-2 py-0.5 rounded mb-1.5 uppercase">
                         {servicesMegaMenu.col4.aiSearch.badge}
                       </span>
-                      <div className="flex items-center gap-1.5 pb-1.5 mb-2 border-b border-slate-700/80 font-josefin font-bold text-xs uppercase tracking-wider text-primary">
+                      <div className="flex items-center gap-1.5 pb-1.5 mb-2 border-b border-slate-700/80 font-saira font-bold text-xs uppercase tracking-wider text-primary">
                         <span>{servicesMegaMenu.col4.aiSearch.category}</span>
                       </div>
                       <ul className="space-y-0.5">
@@ -713,7 +715,7 @@ export default function Header() {
                   </div>
 
                 </div>
-              </div>
+              </Container>
             </motion.div>
           )}
         </AnimatePresence>
@@ -728,7 +730,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 md:hidden"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 lg:hidden"
             />
 
             <motion.div
@@ -736,7 +738,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 220 }}
-              className="fixed top-0 right-0 w-[88%] max-w-[360px] h-full bg-white shadow-2xl z-50 md:hidden flex flex-col justify-between overflow-y-auto border-l border-slate-100"
+              className="fixed top-0 right-0 w-[88%] max-w-[360px] h-full bg-white shadow-2xl z-50 lg:hidden flex flex-col justify-between overflow-y-auto border-l border-slate-100"
             >
               {/* Drawer Top */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
@@ -771,7 +773,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className="text-base font-josefin font-bold text-slate-800 hover:text-primary transition-colors py-2.5 flex-1"
+                        className="text-base font-saira font-bold text-slate-800 hover:text-primary transition-colors py-2.5 flex-1"
                       >
                         {item.name}
                       </Link>
@@ -797,7 +799,7 @@ export default function Header() {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="overflow-hidden pl-3 pb-3 space-y-3 text-xs font-josefin"
+                          className="overflow-hidden pl-3 pb-3 space-y-3 text-xs font-saira"
                         >
                           {item.type === "services" && (
                             <div className="space-y-4 pt-1">

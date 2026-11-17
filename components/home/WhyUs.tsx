@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Layers, Zap, ShieldCheck, KeyRound, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import Container from "components/shared/Container";
 
 export default function WhyUs() {
   const items = [
@@ -48,15 +49,15 @@ export default function WhyUs() {
       {/* Ambient background glow */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/5 via-orange-500/5 to-primary/5 blur-[140px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+      <Container className="relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14 lg:mb-16">
           <div className="max-w-2xl">
             <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
               <span className="w-5 h-[2px] bg-primary" />
               The Believers Difference
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight">
               Why Believers Software is built differently.
             </h2>
             <p className="text-slate-600 leading-relaxed mt-4 text-base">
@@ -68,18 +69,18 @@ export default function WhyUs() {
 
           <div className="hidden sm:flex items-center gap-2.5 bg-white border border-slate-200/80 shadow-sm rounded-full px-4 py-2 text-xs font-mono text-slate-700 self-start md:self-auto">
             <Sparkles className="w-4 h-4 text-primary shrink-0" />
-            <span className="font-bold text-slate-900 font-josefin text-sm">100% Source Access</span>
+            <span className="font-bold text-slate-900 font-saira text-sm">100% Source Access</span>
             <span className="text-slate-300">•</span>
             <span className="text-slate-500">Zero Lock-in</span>
           </div>
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 sm:mb-16">
           {items.map((item, index) => (
             <div
               key={index}
-              className="group p-8 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/70 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_-8px_rgba(0,0,0,0.12)] hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+              className="group p-6 sm:p-8 rounded-3xl bg-white/95 backdrop-blur-sm border border-slate-200/70 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_35px_-8px_rgba(0,0,0,0.12)] hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
             >
               {/* Top Accent Step Number */}
               <div className="absolute top-6 right-6 font-mono font-bold text-3xl text-slate-200/80 group-hover:text-primary/20 transition-colors duration-300">
@@ -93,7 +94,7 @@ export default function WhyUs() {
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="text-xl font-josefin font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-300 leading-snug">
+                <h3 className="text-xl font-saira font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-300 leading-snug">
                   {item.title}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed mb-6">
@@ -113,11 +114,11 @@ export default function WhyUs() {
         </div>
 
         {/* Bottom CTA Guarantee Banner */}
-        <div className="p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white shadow-xl relative overflow-hidden border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white shadow-xl relative overflow-hidden border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl text-center md:text-left">
-            <h3 className="text-xl sm:text-2xl font-josefin font-bold text-white mb-2">
+            <h3 className="text-xl sm:text-2xl font-saira font-bold text-white mb-2">
               Ready to build a website you actually own &amp; control?
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
@@ -133,7 +134,7 @@ export default function WhyUs() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </Link>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

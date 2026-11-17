@@ -1,7 +1,7 @@
 "use client";
 
 import CountUp from "react-countup";
-import { motion } from "framer-motion";
+import Container from "components/shared/Container";
 
 export default function Stats() {
   const stats = [
@@ -40,15 +40,15 @@ export default function Stats() {
   ];
 
   return (
-    <div className="py-12 border-y border-slate-100 bg-white relative z-10 overflow-hidden">
-      <div className="max-w-[1180px] mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="py-10 sm:py-12 border-y border-slate-100 bg-white relative z-10 overflow-hidden">
+      <Container>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="p-6 rounded-2xl bg-[#FCFDFD] border border-slate-100 text-center hover:border-primary/20 hover:shadow-sm hover:shadow-primary/5 transition-all duration-300 group"
+              className="p-4 sm:p-6 rounded-2xl bg-[#FCFDFD] border border-slate-100 text-center hover:border-primary/20 hover:shadow-sm hover:shadow-primary/5 transition-all duration-300 group"
             >
-              <span className="block font-josefin text-4xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">
+              <span className="block font-saira text-2xl xs:text-3xl sm:text-4xl font-bold text-primary mb-1.5 sm:mb-2 group-hover:scale-105 transition-transform duration-300">
                 <CountUp
                   start={0}
                   end={stat.end}
@@ -67,7 +67,7 @@ export default function Stats() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

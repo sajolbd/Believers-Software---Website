@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Container from "components/shared/Container";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Sparkles, TrendingUp, Layers } from "lucide-react";
 
@@ -109,15 +110,15 @@ export default function Portfolio() {
       <div className="hidden md:block absolute top-1/3 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="hidden md:block absolute bottom-10 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-[1180px] mx-auto px-6">
+      <Container>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div className="max-w-2xl">
             <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
               <span className="w-5 h-[2px] bg-primary" />
               Selected Case Studies
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight">
               Recent projects across design, development &amp; growth.
             </h2>
           </div>
@@ -131,7 +132,7 @@ export default function Portfolio() {
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap gap-2 mb-12">
+        <div className="flex flex-wrap gap-2 mb-8 sm:mb-12">
           {categories.map((cat) => {
             const count = getCategoryCount(cat);
             const isActive = activeCategory === cat;
@@ -139,7 +140,7 @@ export default function Portfolio() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer ${isActive
+                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer ${isActive
                   ? "bg-primary text-white shadow-md shadow-primary/25 scale-[1.02]"
                   : "bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-100 hover:text-slate-900"
                   }`}
@@ -195,7 +196,7 @@ export default function Portfolio() {
               {/* Card Content Body */}
               <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
+                  <h3 className="text-lg font-saira font-bold text-slate-900 mb-2.5 group-hover:text-primary transition-colors duration-300 leading-snug">
                     {project.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
@@ -209,7 +210,7 @@ export default function Portfolio() {
                     <span className="block font-mono text-[9px] text-slate-400 uppercase tracking-wider mb-0.5">
                       {project.statLabel1}
                     </span>
-                    <strong className="text-slate-900 text-xs font-bold font-josefin flex items-center gap-1">
+                    <strong className="text-slate-900 text-[11px] sm:text-xs font-bold font-saira flex items-center gap-1">
                       <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
                       {project.statValue1}
                     </strong>
@@ -219,7 +220,7 @@ export default function Portfolio() {
                     <span className="block font-mono text-[9px] text-slate-400 uppercase tracking-wider mb-0.5">
                       {project.statLabel2}
                     </span>
-                    <strong className="text-primary text-xs font-bold font-josefin">
+                    <strong className="text-primary text-[11px] sm:text-xs font-bold font-saira">
                       {project.statValue2}
                     </strong>
                   </div>
@@ -236,7 +237,7 @@ export default function Portfolio() {
             Project names and identifying client details are withheld or generalized per client confidentiality. Ask us for live demo walkthroughs and references relevant to your industry.
           </span>
         </div> */}
-      </div>
+      </Container>
     </section>
   );
 }

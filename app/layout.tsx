@@ -3,15 +3,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Josefin_Sans } from "next/font/google";
+import { Saira } from "next/font/google";
 import ClientLayout from "./client-layout";
 import RootLayoutComponent from "components/layout/RootLayout";
 
 
-const josefinSans = Josefin_Sans({
+const saira = Saira({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-josefin-sans",
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-saira",
 });
 
 const siteUrl =
@@ -90,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={josefinSans.variable}>
+    <html lang="en" className={saira.variable}>
       <head>
         <meta property="og:image" content={`${siteUrl}/og-image.png`} />
         <meta property="og:image:secure_url" content={`${siteUrl}/og-image.png`} />
@@ -100,7 +101,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
       </head>
-      <body>
+      <body className={`${saira.className} font-sans antialiased`}>
         {/* NoScript Fallback */}
         <noscript>
           <style>
@@ -117,7 +118,7 @@ export default function RootLayout({
           <ClientLayout>
             <div className="flex flex-col min-h-screen">
               <Header />
-              <main className="flex-grow pt-32 sm:pt-28 md:pt-24">{children}</main>
+              <main className="flex-grow pt-32 md:pt-24">{children}</main>
               <Footer />
               <FloatingCTA />
             </div>

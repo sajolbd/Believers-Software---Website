@@ -4,6 +4,7 @@ import { useState, useRef, useMemo } from "react";
 import emailjs from "@emailjs/browser";
 import CountUp from "react-countup";
 import GlowButton from "components/layout/GlowButton";
+import Container from "components/shared/Container";
 import {
   CheckCircle2,
   Loader2,
@@ -253,16 +254,16 @@ export default function ProposalClient() {
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-r from-primary/5 via-orange-500/5 to-teal-500/5 blur-[160px] rounded-full" />
       </div>
 
-      <div className="max-w-[1180px] mx-auto px-5 sm:px-8 relative z-10">
+      <Container className="relative z-10">
         
         {/* HERO SECTION WITH FORM */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-12 sm:mb-16 md:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-start mb-12 sm:mb-16 md:mb-20">
           
           {/* FORM CARD */}
           <div className="lg:col-span-6 lg:order-2">
             <div
               id="formCard"
-              className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-xl shadow-slate-200/60 relative"
+              className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-8 lg:p-9 shadow-xl shadow-slate-200/60 relative"
             >
               {!submitted ? (
                 <div id="formView">
@@ -279,7 +280,7 @@ export default function ProposalClient() {
                     <span className="text-primary font-bold">{progressPct}% complete</span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-josefin font-bold text-slate-900 mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-saira font-bold text-slate-900 mb-2">
                     Request your proposal
                   </h2>
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-8">
@@ -444,7 +445,7 @@ export default function ProposalClient() {
                           <label
                             key={option}
                             onClick={() => handleRadioChange(option)}
-                            className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer text-xs font-josefin transition-all ${
+                            className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer text-xs font-saira transition-all ${
                               formData.existing === option
                                 ? "bg-primary/5 border-primary text-slate-900 font-bold"
                                 : errors.existing
@@ -593,7 +594,7 @@ export default function ProposalClient() {
                   <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/10">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h2 className="text-2xl font-josefin font-bold text-slate-900 mb-3">
+                  <h2 className="text-2xl font-saira font-bold text-slate-900 mb-3">
                     Got it — thank you.
                   </h2>
                   <p className="text-slate-600 text-sm leading-relaxed max-w-sm mx-auto mb-6">
@@ -617,7 +618,7 @@ export default function ProposalClient() {
               <span>Get a Proposal</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-josefin font-extrabold text-slate-900 leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-saira font-extrabold text-slate-900 leading-tight">
               Tell us what you're building. <br className="hidden sm:block" />
               We'll send back{" "}
               <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">
@@ -636,7 +637,7 @@ export default function ProposalClient() {
                   <Check className="w-5 h-5" />
                 </div>
                 <div>
-                  <strong className="block text-slate-900 font-josefin font-bold text-base mb-0.5">
+                  <strong className="block text-slate-900 font-saira font-bold text-base mb-0.5">
                     We review your answers
                   </strong>
                   <span className="text-slate-600 text-xs sm:text-sm leading-relaxed block">
@@ -650,7 +651,7 @@ export default function ProposalClient() {
                   <Edit3 className="w-5 h-5" />
                 </div>
                 <div>
-                  <strong className="block text-slate-900 font-josefin font-bold text-base mb-0.5">
+                  <strong className="block text-slate-900 font-saira font-bold text-base mb-0.5">
                     We scope the real work
                   </strong>
                   <span className="text-slate-600 text-xs sm:text-sm leading-relaxed block">
@@ -664,7 +665,7 @@ export default function ProposalClient() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <strong className="block text-slate-900 font-josefin font-bold text-base mb-0.5">
+                  <strong className="block text-slate-900 font-saira font-bold text-base mb-0.5">
                     You get it in writing
                   </strong>
                   <span className="text-slate-600 text-xs sm:text-sm leading-relaxed block">
@@ -683,7 +684,7 @@ export default function ProposalClient() {
             {/* Quote Block Hero */}
             <div className="relative bg-white border border-slate-200/80 shadow-md rounded-2xl p-6 max-w-xl">
               <span className="text-4xl font-serif text-primary/30 leading-none block mb-1">“</span>
-              <p className="text-slate-800 font-josefin text-sm sm:text-base leading-relaxed italic mb-3">
+              <p className="text-slate-800 font-saira text-sm sm:text-base leading-relaxed italic mb-3">
                 They rebuilt our site from scratch and it finally feels like ours — fast, clean, and easy for our own team to update without waiting on a developer.
               </p>
               <span className="text-xs font-mono text-slate-500 block">
@@ -695,27 +696,27 @@ export default function ProposalClient() {
         </div>
 
         {/* TRUST STRIP SECTION */}
-        <div className="border border-slate-200/80 py-8 sm:py-12 my-12 sm:my-16 md:my-20 bg-white rounded-3xl shadow-sm grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="border border-slate-200/80 py-8 sm:py-12 px-4 sm:px-6 my-12 sm:my-16 md:my-20 bg-white rounded-3xl shadow-sm grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 text-center">
           <div>
-            <div className="text-3xl sm:text-4xl font-josefin font-extrabold text-primary">
+            <div className="text-3xl sm:text-4xl font-saira font-extrabold text-primary">
               <CountUp start={0} end={1} duration={2} suffix=" day" enableScrollSpy scrollSpyOnce />
             </div>
             <div className="text-xs font-mono text-slate-500 mt-1">Average proposal turnaround</div>
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-josefin font-extrabold text-primary">
+            <div className="text-3xl sm:text-4xl font-saira font-extrabold text-primary">
               <CountUp start={0} end={0} duration={2} suffix="%" enableScrollSpy scrollSpyOnce />
             </div>
             <div className="text-xs font-mono text-slate-500 mt-1">Obligation to proceed</div>
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-josefin font-extrabold text-primary">
+            <div className="text-3xl sm:text-4xl font-saira font-extrabold text-primary">
               <CountUp start={0} end={100} duration={2.5} suffix="%" enableScrollSpy scrollSpyOnce />
             </div>
             <div className="text-xs font-mono text-slate-500 mt-1">Code & content ownership</div>
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-josefin font-extrabold text-primary">
+            <div className="text-3xl sm:text-4xl font-saira font-extrabold text-primary">
               <CountUp start={0} end={5} duration={2} enableScrollSpy scrollSpyOnce />
             </div>
             <div className="text-xs font-mono text-slate-500 mt-1">Disciplines, one team</div>
@@ -728,7 +729,7 @@ export default function ProposalClient() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5" /> What You'll Receive
             </div>
-            <h2 className="text-2xl sm:text-4xl font-josefin font-bold text-slate-900 mb-3">
+            <h2 className="text-2xl sm:text-4xl font-saira font-bold text-slate-900 mb-3">
               A proposal is a plan, not a price on a napkin.
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -741,7 +742,7 @@ export default function ProposalClient() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <FileCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-saira font-bold text-slate-900 mb-2">
                 Exactly what gets built
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -753,7 +754,7 @@ export default function ProposalClient() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Clock className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-saira font-bold text-slate-900 mb-2">
                 A real delivery date
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -765,7 +766,7 @@ export default function ProposalClient() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <DollarSign className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-saira font-bold text-slate-900 mb-2">
                 Fixed or phased pricing
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -777,7 +778,7 @@ export default function ProposalClient() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Users className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-saira font-bold text-slate-900 mb-2">
                 How we'll work together
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -789,7 +790,7 @@ export default function ProposalClient() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <Shield className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-saira font-bold text-slate-900 mb-2">
                 What you keep, always
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -801,7 +802,7 @@ export default function ProposalClient() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                 <ArrowRight className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-lg font-saira font-bold text-slate-900 mb-2">
                 A clear way to proceed
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -817,7 +818,7 @@ export default function ProposalClient() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-semibold mb-3">
               From Form to Proposal
             </div>
-            <h2 className="text-2xl sm:text-4xl font-josefin font-bold text-slate-900">
+            <h2 className="text-2xl sm:text-4xl font-saira font-bold text-slate-900">
               What happens after you hit submit.
             </h2>
           </div>
@@ -825,7 +826,7 @@ export default function ProposalClient() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-white border border-slate-200/80 rounded-3xl p-4 sm:p-6 shadow-sm">
             <div className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/60 hover:bg-white hover:border-primary/30 transition-all">
               <span className="text-xs font-mono font-bold text-primary block mb-2">Stage 01</span>
-              <h3 className="text-base font-josefin font-bold text-slate-900 mb-2">We read your answers</h3>
+              <h3 className="text-base font-saira font-bold text-slate-900 mb-2">We read your answers</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 A team member — not an automated reply — goes through your project details the same day.
               </p>
@@ -833,7 +834,7 @@ export default function ProposalClient() {
 
             <div className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/60 hover:bg-white hover:border-primary/30 transition-all">
               <span className="text-xs font-mono font-bold text-primary block mb-2">Stage 02</span>
-              <h3 className="text-base font-josefin font-bold text-slate-900 mb-2">We ask if anything's missing</h3>
+              <h3 className="text-base font-saira font-bold text-slate-900 mb-2">We ask if anything's missing</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 If we need a detail to scope things properly, we'll email or message you directly rather than guess.
               </p>
@@ -841,7 +842,7 @@ export default function ProposalClient() {
 
             <div className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/60 hover:bg-white hover:border-primary/30 transition-all">
               <span className="text-xs font-mono font-bold text-primary block mb-2">Stage 03</span>
-              <h3 className="text-base font-josefin font-bold text-slate-900 mb-2">We draft the proposal</h3>
+              <h3 className="text-base font-saira font-bold text-slate-900 mb-2">We draft the proposal</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Scope, timeline, and pricing put together specifically for your project and industry.
               </p>
@@ -849,7 +850,7 @@ export default function ProposalClient() {
 
             <div className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/60 hover:bg-white hover:border-primary/30 transition-all">
               <span className="text-xs font-mono font-bold text-primary block mb-2">Stage 04</span>
-              <h3 className="text-base font-josefin font-bold text-slate-900 mb-2">You get it in your inbox</h3>
+              <h3 className="text-base font-saira font-bold text-slate-900 mb-2">You get it in your inbox</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Within 1 business day, ready to review on your own time — no pressure call attached.
               </p>
@@ -863,7 +864,7 @@ export default function ProposalClient() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-semibold mb-3">
               Is This For You?
             </div>
-            <h2 className="text-2xl sm:text-4xl font-josefin font-bold text-slate-900">
+            <h2 className="text-2xl sm:text-4xl font-saira font-bold text-slate-900">
               Who a proposal from us actually helps.
             </h2>
           </div>
@@ -871,7 +872,7 @@ export default function ProposalClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Good fit */}
             <div className="bg-primary/5 border border-primary/30 rounded-3xl p-6 sm:p-8 shadow-sm">
-              <h3 className="text-lg font-josefin font-bold text-slate-900 mb-5 flex items-center gap-2">
+              <h3 className="text-lg font-saira font-bold text-slate-900 mb-5 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary" />
                 Worth requesting a proposal if:
               </h3>
@@ -901,7 +902,7 @@ export default function ProposalClient() {
 
             {/* Not yet */}
             <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
-              <h3 className="text-lg font-josefin font-bold text-slate-800 mb-5 flex items-center gap-2">
+              <h3 className="text-lg font-saira font-bold text-slate-800 mb-5 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-400" />
                 Maybe not the right time if:
               </h3>
@@ -924,8 +925,8 @@ export default function ProposalClient() {
         </div>
 
         {/* QUOTE BLOCK */}
-        <div className="my-12 sm:my-16 md:my-20 max-w-3xl mx-auto bg-white border border-slate-200/80 shadow-md rounded-3xl p-8 sm:p-10 relative">
-          <p className="text-base sm:text-xl font-josefin font-medium text-slate-800 leading-relaxed italic mb-4">
+        <div className="my-12 sm:my-16 md:my-20 max-w-4xl mx-auto bg-white border border-slate-200/80 shadow-md rounded-3xl p-6 sm:p-10 relative">
+          <p className="text-base sm:text-xl font-saira font-medium text-slate-800 leading-relaxed italic mb-4">
             "Our rankings had been flat for a year. Within a few months of the SEO work, we were finally showing up on the first page for the terms that actually bring in customers."
           </p>
           <span className="text-xs font-mono text-slate-500 block">
@@ -934,12 +935,12 @@ export default function ProposalClient() {
         </div>
 
         {/* FAQ ACCORDION */}
-        <div className="my-12 sm:my-16 md:my-20 max-w-3xl mx-auto">
+        <div className="my-12 sm:my-16 md:my-20 max-w-4xl mx-auto">
           <div className="mb-10 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-semibold mb-3">
               Before You Submit
             </div>
-            <h2 className="text-2xl sm:text-4xl font-josefin font-bold text-slate-900">
+            <h2 className="text-2xl sm:text-4xl font-saira font-bold text-slate-900">
               A few things people usually ask.
             </h2>
           </div>
@@ -954,10 +955,10 @@ export default function ProposalClient() {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full text-left p-5 flex items-center justify-between gap-4 font-josefin font-bold text-slate-900 text-base sm:text-lg cursor-pointer"
+                    className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-saira font-bold text-slate-900 text-sm sm:text-lg cursor-pointer"
                   >
                     <span>{item.q}</span>
-                    <span className={`w-6 h-6 rounded-full bg-slate-100 text-primary flex items-center justify-center text-sm font-bold transition-transform ${isOpen ? "rotate-45" : ""}`}>
+                    <span className={`w-6 h-6 rounded-full bg-slate-100 text-primary flex items-center justify-center text-sm font-bold shrink-0 transition-transform ${isOpen ? "rotate-45" : ""}`}>
                       +
                     </span>
                   </button>
@@ -969,7 +970,7 @@ export default function ProposalClient() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
+                        <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">
                           {item.a}
                         </div>
                       </motion.div>
@@ -982,10 +983,10 @@ export default function ProposalClient() {
         </div>
 
         {/* FINAL CTA BAND */}
-        <div className="my-12 sm:my-16 md:my-20 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+        <div className="my-12 sm:my-16 md:my-20 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 relative overflow-hidden text-center md:text-left">
           <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-primary/20 blur-[100px] pointer-events-none" />
           <div className="space-y-2 relative z-10 max-w-lg">
-            <h2 className="text-2xl sm:text-3xl font-josefin font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl font-saira font-bold text-white">
               Still deciding? Send us the details anyway.
             </h2>
             <p className="text-slate-300 text-sm">
@@ -997,7 +998,7 @@ export default function ProposalClient() {
           </GlowButton>
         </div>
 
-      </div>
+      </Container>
 
       {/* SUCCESS MODAL POPUP */}
       <AnimatePresence>
@@ -1024,7 +1025,7 @@ export default function ProposalClient() {
                 <CheckCircle2 className="w-10 h-10" />
               </div>
 
-              <h3 className="text-2xl font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-2xl font-saira font-bold text-slate-900 mb-2">
                 Proposal Request Submitted!
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">

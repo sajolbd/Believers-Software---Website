@@ -9,6 +9,7 @@ import {
 } from "lib/blogData";
 import BlogSidebar from "components/blog/BlogSidebar";
 import TableOfContents from "components/blog/TableOfContents";
+import Container from "components/shared/Container";
 import {
   Calendar,
   Clock,
@@ -72,7 +73,7 @@ export default function BlogDetailPage({ params }: PageProps) {
     <div className="min-h-screen bg-[#FCFDFD] pb-24">
       {/* Breadcrumbs Navigation Bar */}
       <div className="bg-slate-50 border-b border-slate-200/60 py-3">
-        <div className="max-w-[1180px] mx-auto px-6 flex items-center gap-2 text-xs font-josefin text-slate-500 overflow-x-auto">
+        <Container className="flex items-center gap-2 text-xs font-saira text-slate-500 overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-primary transition-colors">
             Home
           </Link>
@@ -83,24 +84,24 @@ export default function BlogDetailPage({ params }: PageProps) {
           <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
           <span className="text-slate-400">{post.category}</span>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-          <span className="text-slate-900 font-bold truncate max-w-[240px] sm:max-w-none">
+          <span className="text-slate-900 font-bold truncate max-w-[200px] sm:max-w-none">
             {post.title}
           </span>
-        </div>
+        </Container>
       </div>
 
       {/* Main Article Container */}
-      <div className="max-w-[1180px] mx-auto px-6 pt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <Container className="pt-8 sm:pt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Main Article Content Area (8 Cols) */}
-          <main className="lg:col-span-8 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200/80 shadow-xs">
+          <article className="lg:col-span-8 min-w-0 bg-white p-5 sm:p-8 lg:p-10 rounded-3xl border border-slate-200/80 shadow-xs">
             {/* Article Header */}
             <header className="mb-8 border-b border-slate-100 pb-8">
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="font-mono text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase tracking-wider">
                   {post.category}
                 </span>
-                <div className="flex items-center gap-3 text-xs text-slate-400 font-mono">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 font-mono">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3.5 h-3.5 text-slate-400" />
                     {post.date}
@@ -113,12 +114,12 @@ export default function BlogDetailPage({ params }: PageProps) {
                 </div>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-josefin font-bold text-slate-900 leading-[1.18] tracking-tight mb-6">
+              <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-saira font-bold text-slate-900 leading-[1.18] tracking-tight mb-6">
                 {post.title}
               </h1>
 
               {/* Author Meta Header Bar */}
-              <div className="flex items-center justify-between pt-2">
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-full bg-slate-100 border border-slate-200 overflow-hidden relative">
                     <Image
@@ -129,7 +130,7 @@ export default function BlogDetailPage({ params }: PageProps) {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xs font-josefin font-bold text-slate-900">
+                    <h4 className="text-xs font-saira font-bold text-slate-900">
                       {post.author.name}
                     </h4>
                     <p className="text-[11px] text-slate-500 font-medium">
@@ -164,7 +165,7 @@ export default function BlogDetailPage({ params }: PageProps) {
             </header>
 
             {/* Featured Image Cover */}
-            <div className="relative h-[280px] sm:h-[420px] rounded-2xl overflow-hidden mb-8 border border-slate-200 bg-slate-900">
+            <div className="relative h-[220px] sm:h-[360px] lg:h-[420px] rounded-2xl overflow-hidden mb-8 border border-slate-200 bg-slate-900">
               <Image
                 src={post.coverImage}
                 alt={post.title}
@@ -181,7 +182,7 @@ export default function BlogDetailPage({ params }: PageProps) {
 
             {/* Article Content Render */}
             <div
-              className="prose prose-slate max-w-none prose-headings:font-josefin prose-headings:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+              className="prose prose-slate max-w-none prose-headings:font-saira prose-headings:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
@@ -214,7 +215,7 @@ export default function BlogDetailPage({ params }: PageProps) {
                 <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-primary">
                   Written By
                 </span>
-                <h4 className="text-base font-josefin font-bold text-slate-900 mb-1">
+                <h4 className="text-base font-saira font-bold text-slate-900 mb-1">
                   {post.author.name}
                 </h4>
                 <p className="text-xs text-slate-600 leading-relaxed mb-3">
@@ -231,7 +232,7 @@ export default function BlogDetailPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
-          </main>
+          </article>
 
           {/* Sticky Right Sidebar (4 Cols) */}
           <div className="lg:col-span-4">
@@ -244,12 +245,12 @@ export default function BlogDetailPage({ params }: PageProps) {
         {/* Bottom Related Articles Section */}
         {relatedPosts.length > 0 && (
           <section className="mt-16 pt-12 border-t border-slate-200">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
               <div>
                 <span className="text-xs font-mono font-bold text-primary uppercase tracking-widest">
                   Continue Reading
                 </span>
-                <h3 className="text-2xl font-josefin font-bold text-slate-900">
+                <h3 className="text-2xl font-saira font-bold text-slate-900">
                   Related Growth Insights
                 </h3>
               </div>
@@ -280,7 +281,7 @@ export default function BlogDetailPage({ params }: PageProps) {
                     <span className="font-mono text-[9px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2 inline-block">
                       {rPost.category}
                     </span>
-                    <h4 className="text-sm font-josefin font-bold text-slate-900 group-hover:text-primary transition-colors line-clamp-2 leading-snug mb-2">
+                    <h4 className="text-sm font-saira font-bold text-slate-900 group-hover:text-primary transition-colors line-clamp-2 leading-snug mb-2">
                       <Link href={`/blog/${rPost.slug}`}>{rPost.title}</Link>
                     </h4>
                     <p className="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
@@ -302,7 +303,7 @@ export default function BlogDetailPage({ params }: PageProps) {
             </div>
           </section>
         )}
-      </div>
+      </Container>
     </div>
   );
 }

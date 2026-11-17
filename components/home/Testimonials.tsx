@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Container from "components/shared/Container";
 import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -77,31 +78,31 @@ export default function Testimonials() {
       {/* Background Subtle Glow & Grid */}
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-primary/5 via-amber-500/5 to-primary/5 blur-[120px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+      <Container className="relative z-10">
         {/* Header Section with Navigation */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div>
             <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
               <span className="w-5 h-[2px] bg-primary" />
               Client Feedback
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-josefin font-bold text-slate-900 leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-saira font-bold text-slate-900 leading-tight">
               What it's like to work with us.
             </h2>
           </div>
 
           {/* Social Proof & Navigation Controls */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center justify-between sm:justify-start md:justify-end gap-4 sm:gap-6 w-full md:w-auto">
             {/* Rating Summary Badge */}
-            <div className="hidden sm:flex items-center gap-2.5 bg-white border border-slate-200/80 shadow-sm rounded-full px-4 py-2 text-xs font-mono text-slate-700">
+            <div className="flex items-center gap-2 bg-white border border-slate-200/80 shadow-sm rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs font-mono text-slate-700">
               <div className="flex items-center text-amber-400">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
                 ))}
               </div>
-              <span className="font-bold text-slate-900 font-josefin text-sm">5.0</span>
-              <span className="text-slate-400">|</span>
-              <span className="text-slate-500">100% Satisfaction</span>
+              <span className="font-bold text-slate-900 font-saira text-sm">5.0</span>
+              <span className="hidden xs:inline text-slate-400">|</span>
+              <span className="hidden xs:inline text-slate-500">100% Satisfaction</span>
             </div>
 
             {/* Carousel Navigation Buttons */}
@@ -155,7 +156,7 @@ export default function Testimonials() {
           >
             {testimonials.map((testi, index) => (
               <SwiperSlide key={index} className="h-auto">
-                <div className="h-full group p-8 rounded-3xl bg-white/90 backdrop-blur-sm border border-slate-200/70 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_-6px_rgba(0,0,0,0.12)] hover:border-primary/30 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                <div className="h-full group p-6 sm:p-8 rounded-3xl bg-white/90 backdrop-blur-sm border border-slate-200/70 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_-6px_rgba(0,0,0,0.12)] hover:border-primary/30 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
 
                   {/* Decorative Subtle Background Quote */}
                   <Quote className="absolute top-4 right-6 w-20 h-20 text-slate-100 group-hover:text-primary/10 transition-colors duration-500 pointer-events-none -z-0" />
@@ -175,7 +176,7 @@ export default function Testimonials() {
                     </div>
 
                     {/* Quote Text */}
-                    <p className="font-josefin italic font-medium text-slate-700 text-[16px] sm:text-[17px] leading-relaxed mb-8">
+                    <p className="font-saira italic font-medium text-slate-700 text-[16px] sm:text-[17px] leading-relaxed mb-8">
                       "{testi.quote}"
                     </p>
                   </div>
@@ -192,7 +193,7 @@ export default function Testimonials() {
                       />
                     </div>
                     <div>
-                      <h3 className="font-bold font-josefin text-slate-900 text-base leading-snug">
+                      <h3 className="font-bold font-saira text-slate-900 text-base leading-snug">
                         {testi.name}
                       </h3>
                       <p className="text-xs text-slate-400 font-mono mt-0.5 leading-snug">
@@ -220,7 +221,7 @@ export default function Testimonials() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

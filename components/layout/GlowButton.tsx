@@ -26,7 +26,7 @@ export default function GlowButton({
   target,
   rel,
 }: GlowButtonProps) {
-  const baseStyles = `group relative inline-flex items-center justify-center font-josefin font-bold text-xs uppercase tracking-wider text-white transition-all duration-300 ${
+  const baseStyles = `group relative inline-flex items-center justify-center font-saira font-bold text-xs uppercase tracking-wider text-white transition-all duration-300 ${
     fullWidth ? "w-full" : ""
   } ${disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`;
 

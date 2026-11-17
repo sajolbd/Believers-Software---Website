@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GlowButton from "components/layout/GlowButton";
+import Container from "components/shared/Container";
 
 export default function ContactClient() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -154,14 +155,14 @@ export default function ContactClient() {
       {/* Background Subtle Ambient Glow */}
       <div className="hidden md:block absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-r from-primary/5 via-indigo-500/5 to-teal-500/5 blur-[160px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[1180px] mx-auto px-6 relative z-10">
+      <Container className="relative z-10">
         {/* Page Hero Banner */}
-        <div className="max-w-3xl mb-12 sm:mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
             <span className="w-5 h-[2px] bg-primary" />
             Get In Touch
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-josefin font-extrabold text-slate-900 leading-tight mb-6">
+          <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-[48px] font-saira font-extrabold text-slate-900 leading-tight mb-6">
             Let's Build & Grow Your Next Digital Project
           </h1>
           <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
@@ -171,11 +172,11 @@ export default function ContactClient() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 sm:mb-16">
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 flex flex-col gap-5">
             {/* Email Card */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+            <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Mail className="w-6 h-6" />
               </div>
@@ -184,7 +185,7 @@ export default function ContactClient() {
               </span>
               <a
                 href="mailto:hello@believerssoftware.com"
-                className="font-josefin font-bold text-slate-900 text-lg hover:text-primary transition-colors block"
+                className="font-saira font-bold text-slate-900 text-base sm:text-lg hover:text-primary transition-colors block break-all xs:break-normal"
               >
                 hello@believerssoftware.com
               </a>
@@ -204,7 +205,7 @@ export default function ContactClient() {
               <div className="flex flex-wrap items-center gap-3">
                 <a
                   href="tel:+8801716878931"
-                  className="font-josefin font-bold text-slate-900 text-lg hover:text-primary transition-colors"
+                  className="font-saira font-bold text-slate-900 text-lg hover:text-primary transition-colors"
                 >
                   +8801716878931
                 </a>
@@ -231,7 +232,7 @@ export default function ContactClient() {
               <span className="block font-mono text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                 Headquarter Office
               </span>
-              <p className="font-josefin font-bold text-slate-900 text-base leading-snug">
+              <p className="font-saira font-bold text-slate-900 text-base leading-snug">
                 House No 1787, Merul Badda, Dhaka 1212
               </p>
               <p className="text-xs text-slate-500 mt-1.5 font-mono">
@@ -245,7 +246,7 @@ export default function ContactClient() {
                 <Clock className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-josefin font-bold text-white text-base">
+                <h4 className="font-saira font-bold text-white text-base">
                   Guaranteed Response
                 </h4>
                 <p className="text-slate-400 text-xs mt-0.5">
@@ -261,11 +262,11 @@ export default function ContactClient() {
               ref={formRef}
               onSubmit={handleSubmit}
               noValidate
-              className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-slate-200/50 relative overflow-hidden"
+              className="p-5 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-slate-200/50 relative overflow-hidden"
             >
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
                 <div>
-                  <h2 className="text-2xl font-josefin font-bold text-slate-900">
+                  <h2 className="text-2xl font-saira font-bold text-slate-900">
                     Send Project Details
                   </h2>
                   <p className="text-xs text-slate-500 font-mono mt-1">
@@ -445,7 +446,7 @@ export default function ContactClient() {
             </form>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Success Modal Popup */}
       <AnimatePresence>
@@ -470,7 +471,7 @@ export default function ContactClient() {
                 <CheckCircle2 className="w-10 h-10" />
               </div>
 
-              <h3 className="text-2xl font-josefin font-bold text-slate-900 mb-2">
+              <h3 className="text-2xl font-saira font-bold text-slate-900 mb-2">
                 Inquiry Submitted!
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">

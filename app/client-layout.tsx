@@ -22,9 +22,9 @@ export default function ClientLayout({
   }, []);
 
   return (
-    <main ref={contentRef} className="site-animated-content">
+    <div ref={contentRef} className="site-animated-content">
       {children}
       <SiteAnimations rootRef={contentRef} />
-    </main>
+    </div>
   );
 }

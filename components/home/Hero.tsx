@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Code, Search, ShieldCheck, Layout, Zap, CheckCircle2, Cpu } from "lucide-react";
+import Container from "components/shared/Container";
 
 export default function Hero() {
   const badges = [
@@ -14,7 +15,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative overflow-hidden pt-6 pb-16 md:pt-16 md:pb-28 z-10 bg-[#FCFDFD]">
+    <section className="relative overflow-hidden pt-6 pb-14 sm:pt-10 sm:pb-16 lg:pt-16 lg:pb-24 z-10 bg-[#FCFDFD]">
       {/* Inline Keyframes for Infinite Dotted Line Flow */}
       <style>{`
         @keyframes dashFlow {
@@ -45,17 +46,17 @@ export default function Hero() {
       <div className="hidden md:block absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 to-orange-500/5 blur-3xl pointer-events-none -z-10" />
       <div className="hidden md:block absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-primary/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-[1180px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center min-h-[520px]">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center lg:min-h-[520px]">
 
           {/* Left Content Column (First on Mobile & Desktop) */}
           <div className="lg:col-span-7 order-1 lg:order-1 flex flex-col items-start text-left">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-primary uppercase mb-6">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-primary uppercase mb-5 sm:mb-6">
               <span className="w-5 h-[2px] bg-primary" />
               FULL-SERVICE WEB &amp; DIGITAL GROWTH AGENCY
             </div>
 
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-josefin font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[54px] font-saira font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
               A website that actually earns its keep —{" "}
               <span className="text-primary italic font-normal">
                 design, SEO, and security under one roof.
@@ -104,8 +105,8 @@ export default function Hero() {
           </div>
 
           {/* Right Column: 3D Orbit Levitating Diagram (Second on Mobile, Universal Scaling) */}
-          <div className="lg:col-span-5 order-2 lg:order-2 flex items-center justify-center relative w-full h-[320px] min-[380px]:h-[360px] xs:h-[400px] sm:h-[480px] lg:h-[540px] overflow-hidden">
-            <div className="relative w-full max-w-[460px] h-[320px] min-[380px]:h-[360px] xs:h-[400px] sm:h-[480px] lg:h-[500px] flex items-center justify-center scale-[0.65] min-[380px]:scale-[0.75] xs:scale-[0.85] sm:scale-95 lg:scale-100 origin-center transition-transform">
+          <div className="lg:col-span-5 order-2 lg:order-2 flex items-center justify-center relative w-full h-[290px] min-[375px]:h-[340px] xs:h-[405px] sm:h-[465px] lg:h-[400px] xl:h-[480px] overflow-hidden">
+            <div className="relative w-[460px] h-[460px] shrink-0 flex items-center justify-center scale-[0.62] min-[375px]:scale-[0.73] xs:scale-[0.88] sm:scale-100 lg:scale-[0.82] xl:scale-100 origin-center transition-transform">
 
               {/* SVG Infinite Flowing Dotted Lines */}
               <svg
@@ -191,7 +192,7 @@ export default function Hero() {
               >
                 <div className="flex items-center gap-1">
                   <Cpu className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse text-amber-200" />
-                  <span className="font-josefin font-black text-xl sm:text-2xl tracking-tight">BS</span>
+                  <span className="font-saira font-black text-xl sm:text-2xl tracking-tight">BS</span>
                 </div>
                 <span className="font-mono text-[8px] sm:text-[9px] font-bold tracking-widest uppercase mt-0.5 text-white/90">CORE ENGINE</span>
               </motion.div>
@@ -200,7 +201,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="absolute top-1 left-0 z-30 p-2.5 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2 sm:gap-3 w-40 xs:w-44 sm:w-56 group hover:border-primary transition-all"
+                className="absolute top-2 left-0 z-30 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2.5 sm:gap-3 w-[198px] sm:w-[214px] group hover:border-primary transition-all"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold flex-shrink-0">
                   <Layout className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -220,7 +221,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut" }}
-                className="absolute top-1 right-0 z-30 p-2.5 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2 sm:gap-3 w-40 xs:w-44 sm:w-56 group hover:border-amber-500 transition-all"
+                className="absolute top-2 right-0 z-30 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2.5 sm:gap-3 w-[198px] sm:w-[214px] group hover:border-amber-500 transition-all"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 font-bold flex-shrink-0">
                   <Code className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -240,7 +241,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
-                className="absolute bottom-4 right-0 z-30 p-2.5 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2 sm:gap-3 w-40 xs:w-44 sm:w-56 group hover:border-[#3FC7B0] transition-all"
+                className="absolute bottom-3 right-0 z-30 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2.5 sm:gap-3 w-[198px] sm:w-[214px] group hover:border-[#3FC7B0] transition-all"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#3FC7B0]/10 flex items-center justify-center text-[#3FC7B0] font-bold flex-shrink-0">
                   <Search className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -260,7 +261,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 5.2, ease: "easeInOut" }}
-                className="absolute bottom-4 left-0 z-30 p-2.5 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2 sm:gap-3 w-40 xs:w-44 sm:w-56 group hover:border-emerald-500 transition-all"
+                className="absolute bottom-3 left-0 z-30 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-200/50 flex items-center gap-2.5 sm:gap-3 w-[198px] sm:w-[214px] group hover:border-emerald-500 transition-all"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 font-bold flex-shrink-0">
                   <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -280,7 +281,7 @@ export default function Hero() {
           </div>
 
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
